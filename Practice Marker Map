@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_7db33f4751af457eb5b52f3fb1c10915 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_7db33f4751af457eb5b52f3fb1c10915" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_7db33f4751af457eb5b52f3fb1c10915 = L.map(
+        'map_7db33f4751af457eb5b52f3fb1c10915', {
+        center: [63.977161, -152.024667],
+        zoom: 4,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_7f68f338347f41488a241ca20aed8124 = L.tileLayer(
+        'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+    
+        var marker_3e7b33de71fd45209d3336247f9650bb = L.marker(
+            [64.838033, -147.66897],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+
+                var icon_851e779fa5ac4e909ba06087e9ea5940 = L.AwesomeMarkers.icon({
+                    icon: 'star',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_3e7b33de71fd45209d3336247f9650bb.setIcon(icon_851e779fa5ac4e909ba06087e9ea5940);
+            
+    
+            var popup_2a91bf4d5abe4eeca3c772e7961dbcb6 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_6359869f18954cde8f6e3bcbf1a33243 = $(`<div id="html_6359869f18954cde8f6e3bcbf1a33243" style="width: 100.0%; height: 100.0%;">Fairbanks, AK.</div>`)[0];
+                popup_2a91bf4d5abe4eeca3c772e7961dbcb6.setContent(html_6359869f18954cde8f6e3bcbf1a33243);
+            
+
+            marker_3e7b33de71fd45209d3336247f9650bb.bindPopup(popup_2a91bf4d5abe4eeca3c772e7961dbcb6)
+            ;
+
+            
+        
+    
+        marker_3e7b33de71fd45209d3336247f9650bb.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_63e64802bcb14798a67023dc99c534d0 = L.marker(
+            [61.193625, -149.694974],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+            var popup_5426ec9cae564897af27cff872222daa = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_3981ca576bb248c59418ee0d92ae8ec3 = $(`<div id="html_3981ca576bb248c59418ee0d92ae8ec3" style="width: 100.0%; height: 100.0%;">Anchorage, AK.</div>`)[0];
+                popup_5426ec9cae564897af27cff872222daa.setContent(html_3981ca576bb248c59418ee0d92ae8ec3);
+            
+
+            marker_63e64802bcb14798a67023dc99c534d0.bindPopup(popup_5426ec9cae564897af27cff872222daa)
+            ;
+
+            
+        
+    
+        marker_63e64802bcb14798a67023dc99c534d0.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_7bc102782f784aaba0af5760edf0ea08 = L.marker(
+            [57.794934, -152.392466],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+            var popup_574832572ee24daa93464b298d542675 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_16b27c6589804f749ad93b8fa841c6ca = $(`<div id="html_16b27c6589804f749ad93b8fa841c6ca" style="width: 100.0%; height: 100.0%;">Kodiak, AK.</div>`)[0];
+                popup_574832572ee24daa93464b298d542675.setContent(html_16b27c6589804f749ad93b8fa841c6ca);
+            
+
+            marker_7bc102782f784aaba0af5760edf0ea08.bindPopup(popup_574832572ee24daa93464b298d542675)
+            ;
+
+            
+        
+    
+        marker_7bc102782f784aaba0af5760edf0ea08.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_5aaa2e0ba8ed4737b3b632c792a982ab = L.marker(
+            [64.516804, -165.399455],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+            var popup_39d8e7146f604d87bc7de3f5c3a5ec28 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_6894dfe1bed3407083535525fbb86efc = $(`<div id="html_6894dfe1bed3407083535525fbb86efc" style="width: 100.0%; height: 100.0%;">Nome, AK.</div>`)[0];
+                popup_39d8e7146f604d87bc7de3f5c3a5ec28.setContent(html_6894dfe1bed3407083535525fbb86efc);
+            
+
+            marker_5aaa2e0ba8ed4737b3b632c792a982ab.bindPopup(popup_39d8e7146f604d87bc7de3f5c3a5ec28)
+            ;
+
+            
+        
+    
+        marker_5aaa2e0ba8ed4737b3b632c792a982ab.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_f31a8ea379e644c0a5b6ee5b0c53e09f = L.marker(
+            [58.306096, -134.422802],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+            var popup_e91eae413a8840d1a8f09fb4f25c6fdb = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_19b51e95e5ca4f94bff7d0935706de69 = $(`<div id="html_19b51e95e5ca4f94bff7d0935706de69" style="width: 100.0%; height: 100.0%;">Juneau, AK.</div>`)[0];
+                popup_e91eae413a8840d1a8f09fb4f25c6fdb.setContent(html_19b51e95e5ca4f94bff7d0935706de69);
+            
+
+            marker_f31a8ea379e644c0a5b6ee5b0c53e09f.bindPopup(popup_e91eae413a8840d1a8f09fb4f25c6fdb)
+            ;
+
+            
+        
+    
+        marker_f31a8ea379e644c0a5b6ee5b0c53e09f.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_af58249f74544ca28fce47619fd35489 = L.marker(
+            [70.21282, -148.408886],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+            var popup_8abe6e6a005a426aa4a3500ef7e6ca80 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_13f155984804427ebc0b93fe26d647b1 = $(`<div id="html_13f155984804427ebc0b93fe26d647b1" style="width: 100.0%; height: 100.0%;">Prudhoe Bay, AK.</div>`)[0];
+                popup_8abe6e6a005a426aa4a3500ef7e6ca80.setContent(html_13f155984804427ebc0b93fe26d647b1);
+            
+
+            marker_af58249f74544ca28fce47619fd35489.bindPopup(popup_8abe6e6a005a426aa4a3500ef7e6ca80)
+            ;
+
+            
+        
+    
+        marker_af58249f74544ca28fce47619fd35489.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_f4bd86404e2a46859e7dc1866ec87a07 = L.marker(
+            [66.888948, -162.51228],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+            var popup_7b83bb0cbf284f9f8dea924b82ec55b9 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_db18d4e030634deebc8b4d34b604eb83 = $(`<div id="html_db18d4e030634deebc8b4d34b604eb83" style="width: 100.0%; height: 100.0%;">Kotzebue, AK.</div>`)[0];
+                popup_7b83bb0cbf284f9f8dea924b82ec55b9.setContent(html_db18d4e030634deebc8b4d34b604eb83);
+            
+
+            marker_f4bd86404e2a46859e7dc1866ec87a07.bindPopup(popup_7b83bb0cbf284f9f8dea924b82ec55b9)
+            ;
+
+            
+        
+    
+        marker_f4bd86404e2a46859e7dc1866ec87a07.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_c04b59dd2e714a3a9c7d203c95b75a6a = L.marker(
+            [60.794938, -161.770716],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_7db33f4751af457eb5b52f3fb1c10915);
+        
+    
+            var popup_f5407f073da74ae8808a3166cbe2a2ed = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_e3b3dafa9ff9460d907919a2021fcc78 = $(`<div id="html_e3b3dafa9ff9460d907919a2021fcc78" style="width: 100.0%; height: 100.0%;">Bethel, AK.</div>`)[0];
+                popup_f5407f073da74ae8808a3166cbe2a2ed.setContent(html_e3b3dafa9ff9460d907919a2021fcc78);
+            
+
+            marker_c04b59dd2e714a3a9c7d203c95b75a6a.bindPopup(popup_f5407f073da74ae8808a3166cbe2a2ed)
+            ;
+
+            
+        
+    
+        marker_c04b59dd2e714a3a9c7d203c95b75a6a.bindTooltip(
+            `<div>`
+            + `Click for more info` + `</div>`,
+            {"sticky": true}
+        );
+        
+</script>
