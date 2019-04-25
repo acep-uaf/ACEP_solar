@@ -7,4 +7,4 @@ setup(name='SolarAlaska',
       author='ACEP Solar Development Team, University of Washington (2019)',
       license='MIT',
       packages=['SolarAlaska'],
-      install_requires=['numpy', 'Folium', 'matplotlib', 'pandas'])
+      intall_requires=['numpy', 'Folium', 'matplotlib', 'pandas'])
