@@ -124,3 +124,6 @@ dmypy.json
 
 # igonre the Data files to keep the data privacy 
 Cleaned_data/
+
+#The OS file
+.DC_Store
