@@ -1,0 +1,100 @@
+<html><head>
+
+
+<!-- Load require.js. Delete this if your page already loads require.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+<script type="application/vnd.jupyter.widget-state+json">
+{
+    "version_major": 2,
+    "version_minor": 0,
+    "state": {
+        "a15f59ef94084462a829fe039fca2042": {
+            "model_name": "LayoutModel",
+            "model_module": "@jupyter-widgets/base",
+            "model_module_version": "1.1.0",
+            "state": {}
+        },
+        "cb2e495b1845481bb0b52416d8e2d2e3": {
+            "model_name": "SliderStyleModel",
+            "model_module": "@jupyter-widgets/controls",
+            "model_module_version": "1.4.0",
+            "state": {
+                "description_width": ""
+            }
+        },
+        "67070d40e8b84152bed3cb7ee5561533": {
+            "model_name": "IntSliderModel",
+            "model_module": "@jupyter-widgets/controls",
+            "model_module_version": "1.4.0",
+            "state": {
+                "description": "tilt_angle",
+                "layout": "IPY_MODEL_a15f59ef94084462a829fe039fca2042",
+                "max": 80,
+                "min": 5,
+                "step": 5,
+                "style": "IPY_MODEL_cb2e495b1845481bb0b52416d8e2d2e3",
+                "value": 45
+            }
+        },
+        "2abe6d2c03a0428c86933cd39dd7f54d": {
+            "model_name": "LayoutModel",
+            "model_module": "@jupyter-widgets/base",
+            "model_module_version": "1.1.0",
+            "state": {}
+        },
+        "e8f0e7461b1a44fcac3e06bdabb53b8e": {
+            "model_name": "VBoxModel",
+            "model_module": "@jupyter-widgets/controls",
+            "model_module_version": "1.4.0",
+            "state": {
+                "_dom_classes": [
+                    "widget-interact"
+                ],
+                "children": [
+                    "IPY_MODEL_67070d40e8b84152bed3cb7ee5561533",
+                    "IPY_MODEL_643bc18ecf64441e8810a226a83db822"
+                ],
+                "layout": "IPY_MODEL_2abe6d2c03a0428c86933cd39dd7f54d"
+            }
+        },
+        "0e18c5c21cdd4e599b0f485b4efe7f57": {
+            "model_name": "LayoutModel",
+            "model_module": "@jupyter-widgets/base",
+            "model_module_version": "1.1.0",
+            "state": {}
+        },
+        "643bc18ecf64441e8810a226a83db822": {
+            "model_name": "OutputModel",
+            "model_module": "@jupyter-widgets/output",
+            "model_module_version": "1.0.0",
+            "state": {
+                "layout": "IPY_MODEL_0e18c5c21cdd4e599b0f485b4efe7f57",
+                "outputs": [
+                    {
+                        "output_type": "display_data",
+                        "data": {
+                            "text/plain": "<IPython.core.display.HTML object>",
+                            "text/html": "<div id=\"vis672ec4ea83bc49e98b1b4455b1013d84\"></div>\n\u003cscript>\n   ( function() {\n     var _do_plot = function() {\n       if (typeof vg === 'undefined') {\n         window.addEventListener('vincent_libs_loaded', _do_plot)\n         return;\n       }\n       vg.parse.spec({\"axes\": [{\"scale\": \"x\", \"title\": \"Month\", \"type\": \"x\"}, {\"scale\": \"y\", \"title\": \"Energy Produced (kWh)\", \"type\": \"y\"}], \"data\": [{\"name\": \"table\", \"values\": [{\"col\": \"ac_monthly\", \"idx\": 0, \"val\": 75.29331970214844}, {\"col\": \"ac_monthly\", \"idx\": 1, \"val\": 212.30104064941406}, {\"col\": \"ac_monthly\", \"idx\": 2, \"val\": 450.2816467285156}, {\"col\": \"ac_monthly\", \"idx\": 3, \"val\": 572.53564453125}, {\"col\": \"ac_monthly\", \"idx\": 4, \"val\": 555.1434936523438}, {\"col\": \"ac_monthly\", \"idx\": 5, \"val\": 542.8285522460938}, {\"col\": \"ac_monthly\", \"idx\": 6, \"val\": 532.1309814453125}, {\"col\": \"ac_monthly\", \"idx\": 7, \"val\": 449.814697265625}, {\"col\": \"ac_monthly\", \"idx\": 8, \"val\": 330.38067626953125}, {\"col\": \"ac_monthly\", \"idx\": 9, \"val\": 217.23141479492188}, {\"col\": \"ac_monthly\", \"idx\": 10, \"val\": 105.97759246826172}, {\"col\": \"ac_monthly\", \"idx\": 11, \"val\": 37.46936798095703}]}], \"height\": 500, \"legends\": [], \"marks\": [{\"from\": {\"data\": \"table\", \"transform\": [{\"keys\": [\"data.col\"], \"type\": \"facet\"}]}, \"marks\": [{\"properties\": {\"enter\": {\"stroke\": {\"field\": \"data.col\", \"scale\": \"color\"}, \"strokeWidth\": {\"value\": 2}, \"x\": {\"field\": \"data.idx\", \"scale\": \"x\"}, \"y\": {\"field\": \"data.val\", \"scale\": \"y\"}}}, \"type\": \"line\"}], \"type\": \"group\"}], \"padding\": \"auto\", \"scales\": [{\"domain\": {\"data\": \"table\", \"field\": \"data.idx\"}, \"name\": \"x\", \"range\": \"width\", \"type\": \"linear\"}, {\"domain\": {\"data\": \"table\", \"field\": \"data.val\"}, \"name\": \"y\", \"nice\": true, \"range\": \"height\"}, {\"domain\": {\"data\": \"table\", \"field\": \"data.col\"}, \"name\": \"color\", \"range\": \"category20\", \"type\": \"ordinal\"}], \"width\": 960}, function(chart) {\n         chart({el: \"#vis672ec4ea83bc49e98b1b4455b1013d84\"}).update();\n       });\n     };\n     _do_plot();\n   })();\n\u003c/script>\n<style>.vega canvas {width: 100%;}</style>\n        "
+                        },
+                        "metadata": {}
+                    }
+                ]
+            }
+        }
+    }
+}
+</script>
+</head>
+<body>
+
+<script type="application/vnd.jupyter.widget-view+json">
+{
+    "version_major": 2,
+    "version_minor": 0,
+    "model_id": "e8f0e7461b1a44fcac3e06bdabb53b8e"
+}
+</script>
+
+</body>
+</html>
