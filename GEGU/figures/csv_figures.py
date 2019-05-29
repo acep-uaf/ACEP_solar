@@ -56,6 +56,8 @@ def annual_Norm(dataframe):
         single_month = dataframe['Date'][lenth_list[i]]
         # append the result we want to the list
         annual_values.append(single_values)
-        month.append(single_month)
-        
+        month.append(single_month)    
+    month.pop(0) # Here we drop the first month data
+    annual_values.pop(0)
+    
     return(annual_values,month)
