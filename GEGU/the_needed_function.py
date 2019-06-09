@@ -142,5 +142,70 @@ def filled_missingdata_with_ML(dataframe):
     dataframe_with_predicted['Status'] = ""
     for i in index_of_missing:
         dataframe_with_predicted['Status'][i] = 0
+    
+    for i in range(len(index_of_missing)):
+        if dataframe_with_predicted['Energy'][i] < 0:
+            dataframe_with_predicted['Energy'][i] = 0
+        else:
+            pass
         
     return(dataframe_with_predicted)
+
+def filling_missing_data(dataframe):
+    
+    """The function will filled the missing point in a dataframe with the average of the same month in the recent
+       years
+       
+       Args:
+            dataframe(string):the name of the dataframe.
+            
+       Returns:
+            A new dataframe
+      """
+    
+    #get the index of the Missing data 
+    new_dataframe = dataframe
+    index = new_dataframe['Energy'].index[new_dataframe['Energy'].apply(np.isnan)]
+    dataframe_index = new_dataframe.index.values.tolist()
+    a = [dataframe_index.index(i) for i in index]
+    new_dataframe['Status']=""
+    
+    # extract the same months' data and calculate the average
+    for i in a :
+        Index_of_Month = []
+        Energy_of_month=[]
+        for n in range(len(new_dataframe)):
+            if new_dataframe['Month'][n]==new_dataframe['Month'][i]:
+                Index_of_Month.append(n)
+        for c in Index_of_Month:
+            Energy_of_month.append(new_dataframe['Energy'][c])
+        average = np.nanmean(Energy_of_month)
+        new_dataframe['Energy'][i] = average
+        new_dataframe['Status'][i] = 0
+      
+    return(new_dataframe)
+
+def loss_tilt(tilts,annual_production):
+    """The function is to create a dataframe that contain the loss of the tilt
+    
+    Args:
+         tilts(list): The list of tilts used before to get the Prediction
+         annual_production(list):The list of the Prediction
+         ***need to make sure that the length of two lists should be the same***
+         
+    Returns: A dataframe
+    
+    """
+    d = {'Tilts':tilts,'Annual_production':annual_production}# Create a dictionary containg the two list
+    df = pd.DataFrame(d)# create a dataframe
+    
+    max_tilt = df[['Annual_production']].idxmax().values#get the index of the max Annual production
+    
+    lose = [] # an empty list
+    for index, row in df.iterrows(): # Calculate the loss of adjusting the tilt 
+        tilt_loss = (1-row['Annual_production']/df['Annual_production'][name[0]])
+        loss_percentage = "{0:.2%}".format(tilt_loss)
+        lose.append(loss_percentage)
+        
+    df['loss']=lose # put into the dataframe
+    return(df)
