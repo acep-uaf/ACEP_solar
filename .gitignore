@@ -122,8 +122,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# igonre the Data files to keep the data privacy 
+# ignore the Data files to keep the data privacy 
 Cleaned_data/
+
+#ignore hdf5 files to keep data offline
+.hdf5
 
 #The OS file
 .DC_Store
