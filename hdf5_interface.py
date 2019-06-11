@@ -9,7 +9,7 @@ def create_hdf5_file(hdf5_filename):
     """Function to initialize the hdf5 file type on your computer"""
     #Initialize the file with the name that is passed
     #the 'w-' command throws an error if a duplicate filename is passed
-    solar_data_storage = h5py.File('{}.hdf5'.format(hdf5_filename), 'w-')
+    solar_data_storage = h5py.File('{}.h5'.format(hdf5_filename), 'w-')
     solar_data_storage.close()
 
 def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
@@ -18,15 +18,12 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
     #Have a quick conversion that converts all the text inputs to lowercase.
 
     #Check to see if the HDF5 file exists, otherwise pass info on how to create it.
-    if os.path.exists('{}.hdf5'.format(hdf5_filename)):
-        hdf5_file = h5py.File('{}.hdf5'.format(hdf5_filename), 'r+')
+    if os.path.exists('{}.h5'.format(hdf5_filename)):
+        hdf5_file = h5py.File('{}.h5'.format(hdf5_filename), 'r+')
     else:
         raise PathError("The passed HDF5 filename does not exist."
                         "Run the `create_hdf5_file` function to create it")
 
-    #Structure is to check to see if location exists already in the hdf5. If it does, then navigate to under it
-    #If it doesn't, then create the location, and navigate to under it. Then, add this data under
-    #The name that is passed as panel_name.
     #First, make a call to load the data from the excel file into a dataframe.
     solar_dataframe = extract_file_to_dataframe(data_filename)
 
@@ -50,20 +47,23 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
     #If it doesn't exist, then make a group for it to place all the datasets within
     panel_data = hdf5_location_group.create_group(panel_name)
 
-    #Ok, now we'll create all the datasets within that group at that location from the dataframe
-    #This is a problem. It needs instead to go to an array, then into the dataset. 
     #GOOD OPPORTUNITY FOR A TEST - NEED TO BE SURE ALL ARE THE SAME LENGTH
+    #Make numpy arrays for energy and year values.
     energy_array = solar_dataframe.loc[:,'Energy'].values
     year_array = solar_dataframe.loc[:,'Year'].values
+    interpolation_array = solar_dataframe.loc[:, 'Interpolation'].values
+    #Check if data is broken down by daily production
     if 'day' in solar_dataframe.columns:
         day_array = solar_dataframe.loc[:,'Day'].values
         panel_data_day = panel_data.create_dataset("Day", data = day_array)
-    print('switching month array to int')
+    #Convert month names from strings to int values
     month_list = month_string_to_int(solar_dataframe)
-    #print(month_array)
+    #load all of the data into the HDF5 file.
     panel_data_energy = panel_data.create_dataset("Energy", data = energy_array)
     panel_data_month = panel_data.create_dataset("Month", data = month_list)
     panel_data_year = panel_data.create_dataset("Year", data = year_array)
+    panel_data_interpolation = panel_data.create_dataset("Interpolation", 
+                                                         data = interpolation_array)
 
     #Finally, we'll update the attributes of the panel with its DC Capacity
     panel_data.attrs.create('DC Capacity', solar_dataframe['DC Capacity'][0])
@@ -74,8 +74,8 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
 def update_existing_panel_entry(hdf5_filename, data_filename, panel_name):
     """This function updates panel entries in the HDF5 file with new data"""
     #First, check to see if that panel data already exists, otherwise raise errors
-    if os.path.exists('{}.hdf5'.format(hdf5_filename)):
-        hdf5_file = h5py.File('{}.hdf5'.format(hdf5_filename), 'r+')
+    if os.path.exists('{}.h5'.format(hdf5_filename)):
+        hdf5_file = h5py.File('{}.h5'.format(hdf5_filename), 'r+')
     else:
         raise ValueError("The passed HDF5 filename does not exist."
                         "Run the `create_hdf5_file` function to create it")
@@ -99,18 +99,45 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name):
 
     #Now, we need to update the information stored in that panel entry.
     #First, we delete the existing entry, then we add the new data.
+    
+    #For "Day", check if it exists in the HDF5 file already.
+    if panel_name_hdf5.__contains__("Day"):
+        #Check that the dataframe also contains a "day" column
+        if "Day" in solar_dataframe.columns:
+            del panel_name_hdf5['Day']
+            panel_name_hdf5['Day'] = solar_dataframe['Day']
+        #Check what user wants to do if new data doesn't have "Day"
+        #But old data did.
+        else if "Day" not in solar_dataframe.columns:
+            print("Are you sure you want to delete the day column, when the "
+                  "new data does not contain any daily information? ")
+            delete = raw_input("Type 'y' for yes, and 'n' for no.")
+            if delete == 'y':
+                del panel_name_hdf5['Day']
+            else if delete == 'n':
+                raise ValueError("User declined to progress. Check data being input.")
+    else if 'Day' in solar_dataframe.columns:
+        panel_name_hdf5['Day'] = solar_dataframe['Day']
+        
     ##NEED TO NEST THIS IN AN IF, AND ONLY CALL IT IF THAT DATASET EXISTS
-    del panel_name_hdf5['Energy']
+    if panel_name_hdf5.__contains__('Energy'):
+        del panel_name_hdf5['Energy']
     panel_name_hdf5['Energy'] = solar_dataframe['Energy']
 
     #Then repeat for all of the entries.
-    del panel_name_hdf5['Month']
+    if panel_name_hdf5.__contains__('Month'):
+        del panel_name_hdf5['Month']
     month_list = month_string_to_int(solar_dataframe)
     panel_name_month = panel_name_hdf5.create_dataset("Month", data = month_list)
-
-    del panel_name_hdf5['Year']
+    
+    if panel_name_hdf5.__contains__('Year'):
+        del panel_name_hdf5['Year']
     panel_name_hdf5['Year'] = solar_dataframe['Year']
-
+    
+    if panel_name_hdf5.__contains__('Interpolation'):
+        del panel_name_hdf5['Interpolation']
+    panel_name_hdf5['Interpolation'] = solar_dataframe['Interpolation']
+                            
     #Attributes are nice, and can just be updated.
     panel_name_hdf5.attrs.__setitem__('DC Capacity', solar_dataframe['DC Capacity'][0])
 
@@ -141,3 +168,4 @@ def month_string_to_int(solar_dataframe):
                'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12} 
     month_list = list(solar_dataframe['Month'].map(month_change).fillna(solar_dataframe['Month']))
     return month_list
+
