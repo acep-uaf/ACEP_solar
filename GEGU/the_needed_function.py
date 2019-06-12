@@ -185,7 +185,7 @@ def filling_missing_data(dataframe):
       
     return(new_dataframe)
 
-def loss_tilt(tilts,annual_production):
+def loss_tilt(tilts,nrel_long_tilt):
     """The function is to create a dataframe that contain the loss of the tilt
     
     Args:
@@ -196,14 +196,18 @@ def loss_tilt(tilts,annual_production):
     Returns: A dataframe
     
     """
+    annual_production = []
+    for i in range(len(tilts)):
+        annual_production.append(nrel_long_tilt[i]['ac_annual'][2])
+        
     d = {'Tilts':tilts,'Annual_production':annual_production}# Create a dictionary containg the two list
     df = pd.DataFrame(d)# create a dataframe
     
-    max_tilt = df[['Annual_production']].idxmax().values#get the index of the max Annual production
+    max_tilt = int(df[['Annual_production']].idxmax().values)#get the index of the max Annual production
     
     lose = [] # an empty list
     for index, row in df.iterrows(): # Calculate the loss of adjusting the tilt 
-        tilt_loss = (1-row['Annual_production']/df['Annual_production'][name[0]])
+        tilt_loss = (1-row['Annual_production']/df['Annual_production'][max_tilt])
         loss_percentage = "{0:.2%}".format(tilt_loss)
         lose.append(loss_percentage)
         
