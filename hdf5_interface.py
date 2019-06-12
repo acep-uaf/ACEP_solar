@@ -21,7 +21,7 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
     if os.path.exists('{}.h5'.format(hdf5_filename)):
         hdf5_file = h5py.File('{}.h5'.format(hdf5_filename), 'r+')
     else:
-        raise PathError("The passed HDF5 filename does not exist."
+        raise ValueError("The passed HDF5 filename does not exist."
                         "Run the `create_hdf5_file` function to create it")
 
     #First, make a call to load the data from the excel file into a dataframe.
@@ -108,15 +108,15 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name):
             panel_name_hdf5['Day'] = solar_dataframe['Day']
         #Check what user wants to do if new data doesn't have "Day"
         #But old data did.
-        else if "Day" not in solar_dataframe.columns:
+        elif "Day" not in solar_dataframe.columns:
             print("Are you sure you want to delete the day column, when the "
                   "new data does not contain any daily information? ")
             delete = raw_input("Type 'y' for yes, and 'n' for no.")
             if delete == 'y':
                 del panel_name_hdf5['Day']
-            else if delete == 'n':
+            elif delete == 'n':
                 raise ValueError("User declined to progress. Check data being input.")
-    else if 'Day' in solar_dataframe.columns:
+    elif 'Day' in solar_dataframe.columns:
         panel_name_hdf5['Day'] = solar_dataframe['Day']
         
     ##NEED TO NEST THIS IN AN IF, AND ONLY CALL IT IF THAT DATASET EXISTS
@@ -169,3 +169,13 @@ def month_string_to_int(solar_dataframe):
     month_list = list(solar_dataframe['Month'].map(month_change).fillna(solar_dataframe['Month']))
     return month_list
 
+def hdf5_to_dataframe(hdf5_filename, location_name, panel_name):
+    """This function extracts data from an HDF5 file and loads it into a pandas dataframe"""
+    #Load the HDF5 file data
+    hdf5_file = h5py.File('{}.h5'.format(hdf5_filename), 'r')
+    hdf5_location = hdf5_file.get(location_name)
+    panel_location = hdf5_location.get(panel_name)
+    dataframe = pd.DataFrame()
+    for keys in panel_location.keys():
+        dataframe[str(keys)] = panel_location[str(keys)]
+    return dataframe
