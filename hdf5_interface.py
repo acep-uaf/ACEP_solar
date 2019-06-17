@@ -51,7 +51,7 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
     #Make numpy arrays for energy and year values.
     energy_array = solar_dataframe.loc[:,'Energy'].values
     year_array = solar_dataframe.loc[:,'Year'].values
-    interpolation_array = solar_dataframe.loc[:, 'Interpolation'].values
+    interpolation_array = solar_dataframe.loc[:, 'Interpolate'].values
     #Check if data is broken down by daily production
     if 'day' in solar_dataframe.columns:
         day_array = solar_dataframe.loc[:,'Day'].values
@@ -62,7 +62,7 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
     panel_data_energy = panel_data.create_dataset("Energy", data = energy_array)
     panel_data_month = panel_data.create_dataset("Month", data = month_list)
     panel_data_year = panel_data.create_dataset("Year", data = year_array)
-    panel_data_interpolation = panel_data.create_dataset("Interpolation", 
+    panel_data_interpolation = panel_data.create_dataset("Interpolate", 
                                                          data = interpolation_array)
 
     #Finally, we'll update the attributes of the panel with its DC Capacity
@@ -134,9 +134,9 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name):
         del panel_name_hdf5['Year']
     panel_name_hdf5['Year'] = solar_dataframe['Year']
     
-    if panel_name_hdf5.__contains__('Interpolation'):
-        del panel_name_hdf5['Interpolation']
-    panel_name_hdf5['Interpolation'] = solar_dataframe['Interpolation']
+    if panel_name_hdf5.__contains__('Interpolate'):
+        del panel_name_hdf5['Interpolate']
+    panel_name_hdf5['Interpolate'] = solar_dataframe['Interpolate']
                             
     #Attributes are nice, and can just be updated.
     panel_name_hdf5.attrs.__setitem__('DC Capacity', solar_dataframe['DC Capacity'][0])
@@ -178,4 +178,9 @@ def hdf5_to_dataframe(hdf5_filename, location_name, panel_name):
     dataframe = pd.DataFrame()
     for keys in panel_location.keys():
         dataframe[str(keys)] = panel_location[str(keys)]
+    #Also need to pull out the DC Capacity and Locations:
+    dataframe['DC Capacity'] = ""
+    dataframe['Location'] = ""
+    dataframe['DC Capacity'][0] = panel_location.attrs.__getitem__('DC Capacity')
+    dataframe['Location'][0] = str(location_name)
     return dataframe
