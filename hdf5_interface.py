@@ -177,10 +177,11 @@ def hdf5_to_dataframe(hdf5_filename, location_name, panel_name):
     panel_location = hdf5_location.get(panel_name)
     dataframe = pd.DataFrame()
     for keys in panel_location.keys():
-        dataframe[str(keys)] = panel_location[str(keys)]
+        dataframe[str(keys)] = panel_location[str(keys)][:]
     #Also need to pull out the DC Capacity and Locations:
     dataframe['DC Capacity'] = ""
     dataframe['Location'] = ""
     dataframe['DC Capacity'][0] = panel_location.attrs.__getitem__('DC Capacity')
     dataframe['Location'][0] = str(location_name)
+    hdf5_file.close()
     return dataframe
