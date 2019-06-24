@@ -133,8 +133,182 @@ li a:hover:not(.active) {
   </body>
 	
 	<p>This is the monthly production figure. The x axis is month and y axis is the production of each month. We take the best performance data and  median performance data to show. TMY2 and TMY3 lines are the prediction values from PVWatts which is a system they can collect solar source data and predict solar panel production. As you see, the production in the summer is pretty high because the sun exposes on the sky all the day, but the situation in the winter is opposite. </p>
+    <p style="font-size:30px;color:'blue'"><i> PV Watts Prediction   </i>  </p>
+  
+	<p>The following 3 figures is the visualization of data from the PV Watts V6. We use the PV Watts API to call the prediction. All the following data are based on these hypothetic parameters: <br>(1) System Capacity: 4 kW <br>(2) Losses: 14% <br> (3) Dataset: TMY2 <i>(Weather station name: Fairbanks)</i> <br> (4) Inverter Efficiency: 96% <br> For anyone who wants to use this APP to see the different prediction by changing the parameters, you can go to this Website:https://pvwatts.nrel.gov/pvwatts.php.
+    </p>
+    <p style="color:'blue';font-size:20px;"> <i>1. Annual Production </i> </p>
+	 
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="bc9b5969-8671-49e3-8c7c-b98e89c05ac0" data-root-id="1374"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1491">
+          {"83bb2811-b427-48ca-8ecb-cfdd65a841f7":{"roots":{"references":[{"attributes":{"callback":null},"id":"1375","type":"DataRange1d"},{"attributes":{"axis_label":"Tilts","formatter":{"id":"1423","type":"BasicTickFormatter"},"ticker":{"id":"1411","type":"FixedTicker"}},"id":"1383","type":"LinearAxis"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1426","type":"BoxAnnotation"},{"attributes":{},"id":"1421","type":"BasicTickFormatter"},{"attributes":{"align":"center","text":"Annual Production of different tilts","text_color":{"value":"olive"},"text_font":"times","text_font_size":{"value":"12pt"},"text_font_style":"italic"},"id":"1413","type":"Title"},{"attributes":{"dimension":1,"ticker":{"id":"1389","type":"BasicTicker"}},"id":"1392","type":"Grid"},{"attributes":{"source":{"id":"1406","type":"ColumnDataSource"}},"id":"1410","type":"CDSView"},{"attributes":{},"id":"1379","type":"LinearScale"},{"attributes":{},"id":"1384","type":"BasicTicker"},{"attributes":{},"id":"1381","type":"LinearScale"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1393","type":"PanTool"},{"id":"1394","type":"WheelZoomTool"},{"id":"1395","type":"BoxZoomTool"},{"id":"1396","type":"SaveTool"},{"id":"1397","type":"ResetTool"},{"id":"1398","type":"HelpTool"}]},"id":"1399","type":"Toolbar"},{"attributes":{"axis_label":"Annual Production (kWh)","formatter":{"id":"1421","type":"BasicTickFormatter"},"ticker":{"id":"1389","type":"BasicTicker"}},"id":"1388","type":"LinearAxis"},{"attributes":{"data_source":{"id":"1406","type":"ColumnDataSource"},"glyph":{"id":"1407","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1408","type":"Line"},"selection_glyph":null,"view":{"id":"1410","type":"CDSView"}},"id":"1409","type":"GlyphRenderer"},{"attributes":{},"id":"1389","type":"BasicTicker"},{"attributes":{"callback":null,"data":{"x":[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90],"y":[800.1531982421875,846.3370971679688,888.0399780273438,924.48193359375,955.4673461914062,980.6492309570312,999.7875366210938,1012.9938354492188,1020.3471069335938,1021.8969116210938,1017.72802734375,1007.7638549804688,992.1194458007812,970.9337768554688,944.3644409179688,912.6375122070312,875.8839111328125,834.1503295898438]},"selected":{"id":"1424","type":"Selection"},"selection_policy":{"id":"1425","type":"UnionRenderers"}},"id":"1406","type":"ColumnDataSource"},{"attributes":{},"id":"1396","type":"SaveTool"},{"attributes":{"overlay":{"id":"1426","type":"BoxAnnotation"}},"id":"1395","type":"BoxZoomTool"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1408","type":"Line"},{"attributes":{},"id":"1393","type":"PanTool"},{"attributes":{"callback":null},"id":"1377","type":"DataRange1d"},{"attributes":{},"id":"1423","type":"BasicTickFormatter"},{"attributes":{"ticks":[10,20,30,40,50,60,70,80,90]},"id":"1411","type":"FixedTicker"},{"attributes":{},"id":"1398","type":"HelpTool"},{"attributes":{},"id":"1394","type":"WheelZoomTool"},{"attributes":{},"id":"1424","type":"Selection"},{"attributes":{"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1407","type":"Line"},{"attributes":{"ticker":{"id":"1384","type":"BasicTicker"}},"id":"1387","type":"Grid"},{"attributes":{},"id":"1425","type":"UnionRenderers"},{"attributes":{"below":[{"id":"1383","type":"LinearAxis"}],"center":[{"id":"1387","type":"Grid"},{"id":"1392","type":"Grid"}],"left":[{"id":"1388","type":"LinearAxis"}],"plot_height":250,"plot_width":400,"renderers":[{"id":"1409","type":"GlyphRenderer"}],"title":{"id":"1413","type":"Title"},"toolbar":{"id":"1399","type":"Toolbar"},"x_range":{"id":"1375","type":"DataRange1d"},"x_scale":{"id":"1379","type":"LinearScale"},"y_range":{"id":"1377","type":"DataRange1d"},"y_scale":{"id":"1381","type":"LinearScale"}},"id":"1374","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1397","type":"ResetTool"}],"root_ids":["1374"]},"title":"Bokeh Application","version":"1.1.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1491').textContent;
+                  var render_items = [{"docid":"83bb2811-b427-48ca-8ecb-cfdd65a841f7","roots":{"1374":"bc9b5969-8671-49e3-8c7c-b98e89c05ac0"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+    </html>
+    <p> You can see the above figure that when you choose to set the tilt of you panel at about 50 degree in Fairbanks, it 
+     <br>has more chance to give you a max annual production at about 1020 kWh. However, if you choose to set your panel<br>
+    vertically, it will still generate about 800 kWh power for a year. </p>
+    <p style="color:'blue';font-size:20px;"><i>2. Loss of Annual Production</i> </p>
+    
+    <html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="035aedd6-9b92-4227-9335-f663328cd529" data-root-id="1432"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1542">
+          {"b303902f-72f5-4980-8a13-1595c06dcd99":{"roots":{"references":[{"attributes":{"callback":null},"id":"1435","type":"DataRange1d"},{"attributes":{"axis_label":"loss (%)","formatter":{"id":"1471","type":"NumeralTickFormatter"},"ticker":{"id":"1447","type":"BasicTicker"}},"id":"1446","type":"LinearAxis"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1451","type":"PanTool"},{"id":"1452","type":"WheelZoomTool"},{"id":"1453","type":"BoxZoomTool"},{"id":"1454","type":"SaveTool"},{"id":"1455","type":"ResetTool"},{"id":"1456","type":"HelpTool"}]},"id":"1457","type":"Toolbar"},{"attributes":{},"id":"1455","type":"ResetTool"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1466","type":"Line"},{"attributes":{"align":"center","text":"Annual Production loss of different tilts","text_color":{"value":"olive"},"text_font":"times","text_font_size":{"value":"12pt"},"text_font_style":"italic"},"id":"1473","type":"Title"},{"attributes":{},"id":"1447","type":"BasicTicker"},{"attributes":{},"id":"1439","type":"LinearScale"},{"attributes":{"ticks":[10,20,30,40,50,60,70,80,90]},"id":"1469","type":"FixedTicker"},{"attributes":{},"id":"1452","type":"WheelZoomTool"},{"attributes":{"ticker":{"id":"1442","type":"BasicTicker"}},"id":"1445","type":"Grid"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1485","type":"BoxAnnotation"},{"attributes":{},"id":"1454","type":"SaveTool"},{"attributes":{"data_source":{"id":"1464","type":"ColumnDataSource"},"glyph":{"id":"1465","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1466","type":"Line"},"selection_glyph":null,"view":{"id":"1468","type":"CDSView"}},"id":"1467","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"x":[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90],"y":{"__ndarray__":"yPd282bGyz8k3UHSef3FPxhFE708xMA/2Mv6s2NnuD+AyZHqPaSwP/DsK6KRqqQ/YHeV/qUnlj/A8EiZwdeBPwDWWXgQ2Vg/AAAAAAAAAACABoAbubVwP4De6GEEU4w/QFbCObjWnT8QplnRtIipP/hzm0pKbLM/YLnEFP5euz+YPocuCErCP9zQNkhBhMc/","dtype":"float64","shape":[18]}},"selected":{"id":"1483","type":"Selection"},"selection_policy":{"id":"1484","type":"UnionRenderers"}},"id":"1464","type":"ColumnDataSource"},{"attributes":{},"id":"1484","type":"UnionRenderers"},{"attributes":{"below":[{"id":"1441","type":"LinearAxis"}],"center":[{"id":"1445","type":"Grid"},{"id":"1450","type":"Grid"}],"left":[{"id":"1446","type":"LinearAxis"}],"plot_height":250,"plot_width":400,"renderers":[{"id":"1467","type":"GlyphRenderer"}],"title":{"id":"1473","type":"Title"},"toolbar":{"id":"1457","type":"Toolbar"},"x_range":{"id":"1433","type":"DataRange1d"},"x_scale":{"id":"1437","type":"LinearScale"},"y_range":{"id":"1435","type":"DataRange1d"},"y_scale":{"id":"1439","type":"LinearScale"}},"id":"1432","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1442","type":"BasicTicker"},{"attributes":{"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1465","type":"Line"},{"attributes":{},"id":"1451","type":"PanTool"},{"attributes":{"source":{"id":"1464","type":"ColumnDataSource"}},"id":"1468","type":"CDSView"},{"attributes":{},"id":"1437","type":"LinearScale"},{"attributes":{},"id":"1482","type":"BasicTickFormatter"},{"attributes":{},"id":"1483","type":"Selection"},{"attributes":{"format":"0 %"},"id":"1471","type":"NumeralTickFormatter"},{"attributes":{"callback":null},"id":"1433","type":"DataRange1d"},{"attributes":{"overlay":{"id":"1485","type":"BoxAnnotation"}},"id":"1453","type":"BoxZoomTool"},{"attributes":{},"id":"1456","type":"HelpTool"},{"attributes":{"dimension":1,"ticker":{"id":"1447","type":"BasicTicker"}},"id":"1450","type":"Grid"},{"attributes":{"axis_label":"Tilts","formatter":{"id":"1482","type":"BasicTickFormatter"},"ticker":{"id":"1469","type":"FixedTicker"}},"id":"1441","type":"LinearAxis"}],"root_ids":["1432"]},"title":"Bokeh Application","version":"1.1.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1542').textContent;
+                  var render_items = [{"docid":"b303902f-72f5-4980-8a13-1595c06dcd99","roots":{"1432":"035aedd6-9b92-4227-9335-f663328cd529"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
+    <p>This figure is more clear to tell you how percentage of the annual production you will lose, compared with the tilt that will give you the max annual production.</p>
+    <p style="color:'blue';font-size:20px;"><i> 3. The tendency of monthly production</i> </p>
 
-	  <head>
+    <html lang="en">
+  
+  <head>
     
       <meta charset="utf-8">
       <title>Bokeh Plot</title>
@@ -166,14 +340,14 @@ li a:hover:not(.active) {
           
           
             
-              <div class="bk-root" id="1402a763-109b-419b-b349-f0d4a8e50a3d" data-root-id="2085"></div>
+              <div class="bk-root" id="7c6adaa9-74c0-4d96-9165-d2eeee747bdf" data-root-id="1303"></div>
             
           
         
       
       
-        <script type="application/json" id="2158">
-          {"f0245112-47c1-4b07-971a-72b89cc969bb":{"roots":{"references":[{"attributes":{},"id":"2090","type":"BasicTickFormatter"},{"attributes":{},"id":"2092","type":"Selection"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"2080","type":"Line"},{"attributes":{"data_source":{"id":"2043","type":"ColumnDataSource"},"glyph":{"id":"2079","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2080","type":"Line"},"selection_glyph":null,"view":{"id":"2082","type":"CDSView"}},"id":"2081","type":"GlyphRenderer"},{"attributes":{"overlay":{"id":"2091","type":"BoxAnnotation"}},"id":"2067","type":"BoxZoomTool"},{"attributes":{},"id":"2093","type":"UnionRenderers"},{"attributes":{},"id":"2061","type":"BasicTicker"},{"attributes":{},"id":"2068","type":"SaveTool"},{"attributes":{},"id":"2066","type":"WheelZoomTool"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"2091","type":"BoxAnnotation"},{"attributes":{},"id":"2065","type":"PanTool"},{"attributes":{"axis_label":"Month Production(kWh)","formatter":{"id":"2090","type":"BasicTickFormatter"},"ticker":{"id":"2061","type":"BasicTicker"}},"id":"2060","type":"LinearAxis"},{"attributes":{},"id":"2070","type":"HelpTool"},{"attributes":{"callback":null,"data":{"tilt_10":{"__ndarray__":"AAAAAIXiOkAAAACA3YhbQAAAAADtBnNAAAAAQM94fkAAAACgMa6AQAAAAGApO4FAAAAAYBFYgEAAAADA7Ht5QAAAACDdiW9AAAAAgPOvYEAAAACAh6tGQAAAAAAEiyJA","dtype":"float64","shape":[12]},"tilt_15":{"__ndarray__":"AAAAQKaNQUAAAAAAoxRgQAAAAAAZ3XRAAAAA4BDbf0AAAABghwqBQAAAAKB2boFAAAAAANehgEAAAADAslF6QAAAAOCs1HBAAAAAoH2rYkAAAADgiPNLQAAAACDyxCtA","dtype":"float64","shape":[12]},"tilt_20":{"__ndarray__":"AAAAIEuRRUAAAADgBkNiQAAAAGBkh3ZAAAAAwHuEgEAAAACg+VCBQAAAAOBPjYFAAAAAQObWgEAAAAAARQB7QAAAAOAgxnFAAAAAIDyCZEAAAADAL4NQQAAAAAAOgjJA","dtype":"float64","shape":[12]},"tilt_25":{"__ndarray__":"AAAA4LRdSUAAAAAgCUhkQAAAAOBPBHhAAAAAIGgBgUAAAAAANoGBQAAAACA0moFAAAAA4G74gEAAAABAyIZ7QAAAAOCEmHJAAAAAwL4vZkAAAABAguRSQAAAAGD78DZA","dtype":"float64","shape":[12]},"tilt_30":{"__ndarray__":"AAAAwGzkTEAAAABA7R9mQAAAAOAYU3lAAAAAYIlkgUAAAACAGZqBQAAAAID2kYFAAAAAgLADgUAAAAAA6eV7QAAAACB+S3NAAAAAYKexZ0AAAADAKhdVQAAAAEBnFTtA","dtype":"float64","shape":[12]},"tilt_35":{"__ndarray__":"AAAAAJcPUEAAAAAg0MhnQAAAACBEc3pAAAAAIHaqgUAAAABgFpuBQAAAAMB2c4FAAAAAQCP4gEAAAADAIx58QAAAAOC73nNAAAAAgKwGaUAAAABgAxhXQAAAAKAA5T5A","dtype":"float64","shape":[12]},"tilt_40":{"__ndarray__":"AAAAwFyFUUAAAADAlUFpQAAAAECUZHtAAAAA4LbUgUAAAACge4WBQAAAAID1PoFAAAAAoLbWgEAAAABArzB8QAAAACBXUnRAAAAAYBQuakAAAAAAfeVYQAAAAIDcLUFA","dtype":"float64","shape":[12]},"tilt_45":{"__ndarray__":"AAAAwMXSUkAAAAAgoolqQAAAAKCBJHxAAAAAAEnkgUAAAADgJVmBQAAAAOCg9oBAAAAAQAyhgEAAAAAACR18QAAAAEAXpnRAAAAAwGcna0AAAADgkH5aQAAAAEAUvEJA","dtype":"float64","shape":[12]},"tilt_5":{"__ndarray__":"AAAAwL/8MkAAAAAAQMJWQAAAAADgB3FAAAAAwGjjfEAAAADgYDyAQAAAAAB/94BAAAAAQB70f0AAAABAKYB4QAAAAAByL21AAAAAYEgwXUAAAACgp2FBQAAAAIC9iBRA","dtype":"float64","shape":[12]},"tilt_50":{"__ndarray__":"AAAAAIL3U0AAAADgl6BrQAAAAKAcsHxAAAAAgE7agUAAAAAAbhaBQAAAAIA4m4BAAAAAgENYgEAAAABgMON7QAAAAOAJ2nRAAAAAQGDya0AAAADAlOJbQAAAAKD9HERA","dtype":"float64","shape":[12]},"tilt_55":{"__ndarray__":"AAAAwFrzVEAAAADAJYZsQAAAAMBlDH1AAAAA4Me4gUAAAACgN76AQAAAAEAFLIBAAAAAoKP1f0AAAACAj4J7QAAAAIBK7nRAAAAAANeObEAAAACgERFdQAAAACB2UEVA","dtype":"float64","shape":[12]},"tilt_60":{"__ndarray__":"AAAAAB3GVUAAAACgFjptQAAAAGCROH1AAAAAgPh/gUAAAAAgvk+AQAAAAICTUH9AAAAAIEkPf0AAAACg2/t6QAAAAEAQ43RAAAAAwLf8bEAAAABAjAleQAAAAABLVkZA","dtype":"float64","shape":[12]},"tilt_65":{"__ndarray__":"AAAAAJBvVkAAAADgQrxtQAAAAKDxOX1AAAAA4FIwgUAAAAAAUZV/QAAAAEB5H35AAAAAAAn/fUAAAABg6E96QAAAAMCNuHRAAAAAIBY8bUAAAABgsMteQAAAAIBFLkdA","dtype":"float64","shape":[12]},"tilt_70":{"__ndarray__":"AAAAgJjvVkAAAACgkwxuQAAAAKBdEX1AAAAAAK7JgEAAAAAgCmB+QAAAAKCkx3xAAAAAIP7GfEAAAABguH95QAAAAMARb3RAAAAAAAxNbUAAAABAQFdfQAAAAEBc2EdA","dtype":"float64","shape":[12]},"tilt_75":{"__ndarray__":"AAAAQBhGV0AAAABACCtuQAAAAMC1v3xAAAAAYFJLgEAAAABAXwJ9QAAAAKDmTHtAAAAAwLFpe0AAAADgeYx4QAAAAMAIB3RAAAAAgM8vbUAAAACA+6tfQAAAAIB0VEhA","dtype":"float64","shape":[12]},"tilt_80":{"__ndarray__":"AAAAANlyV0AAAACgtRduQAAAAIBnQnxAAAAAwOtqf0AAAADg2IB7QAAAAGBFtXlAAAAAIDvreUAAAACAmXd3QAAAAMDZgHNAAAAAQL3kbEAAAABg1clfQAAAAOA3okhA","dtype":"float64","shape":[12]},"tilt_85":{"__ndarray__":"AAAAoP51V0AAAACgxdJtQAAAAEB+mHtAAAAAYEERfkAAAAAAb9t5QAAAAEA7AnhAAAAAYJpPeEAAAACAIEN2QAAAAOD73HJAAAAAAEFsbEAAAACg37BfQAAAAIC0wUhA","dtype":"float64","shape":[12]},"tilt_90":{"__ndarray__":"AAAAYJhPV0AAAAAAfVxtQAAAAOArvnpAAAAAoJ6IfEAAAACg+BR4QAAAAEAANXZAAAAAALyXdkAAAABA0fB0QAAAAIAJHHJAAAAAQOfGa0AAAADARGFfQAAAAEDfskhA","dtype":"float64","shape":[12]},"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"AAAAwL/8MkAAAAAAQMJWQAAAAADgB3FAAAAAwGjjfEAAAADgYDyAQAAAAAB/94BAAAAAQB70f0AAAABAKYB4QAAAAAByL21AAAAAYEgwXUAAAACgp2FBQAAAAIC9iBRA","dtype":"float64","shape":[12]}},"selected":{"id":"2092","type":"Selection"},"selection_policy":{"id":"2093","type":"UnionRenderers"}},"id":"2043","type":"ColumnDataSource"},{"attributes":{"callback":null},"id":"2047","type":"DataRange1d"},{"attributes":{"callback":null,"js_property_callbacks":{"change:value":[{"id":"2084","type":"CustomJS"}]},"options":["tilt_5","tilt_10","tilt_15","tilt_20","tilt_25","tilt_30","tilt_35","tilt_40","tilt_45","tilt_50","tilt_55","tilt_60","tilt_65","tilt_70","tilt_75","tilt_80","tilt_85","tilt_90"],"value":"foo"},"id":"2083","type":"Select"},{"attributes":{"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"2079","type":"Line"},{"attributes":{},"id":"2056","type":"BasicTicker"},{"attributes":{"args":{"select":{"id":"2083","type":"Select"},"source":{"id":"2043","type":"ColumnDataSource"}},"code":"\n    // make a shallow copy of the current data dict\n    const new_data = Object.assign({}, source.data)\n\n    // update the y column in the new data dict from the appropriate other column\n    new_data.y = source.data[select.value]\n\n    // set the new data on source, BokehJS will pick this up automatically\n    source.data = new_data\n"},"id":"2084","type":"CustomJS"},{"attributes":{"source":{"id":"2043","type":"ColumnDataSource"}},"id":"2082","type":"CDSView"},{"attributes":{"below":[{"id":"2055","type":"LinearAxis"}],"center":[{"id":"2059","type":"Grid"},{"id":"2064","type":"Grid"}],"left":[{"id":"2060","type":"LinearAxis"}],"plot_height":350,"renderers":[{"id":"2081","type":"GlyphRenderer"}],"title":{"id":"2045","type":"Title"},"toolbar":{"id":"2071","type":"Toolbar"},"x_range":{"id":"2047","type":"DataRange1d"},"x_scale":{"id":"2051","type":"LinearScale"},"y_range":{"id":"2049","type":"DataRange1d"},"y_scale":{"id":"2053","type":"LinearScale"}},"id":"2044","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"2069","type":"ResetTool"},{"attributes":{"ticker":{"id":"2056","type":"BasicTicker"}},"id":"2059","type":"Grid"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"2065","type":"PanTool"},{"id":"2066","type":"WheelZoomTool"},{"id":"2067","type":"BoxZoomTool"},{"id":"2068","type":"SaveTool"},{"id":"2069","type":"ResetTool"},{"id":"2070","type":"HelpTool"}]},"id":"2071","type":"Toolbar"},{"attributes":{},"id":"2088","type":"BasicTickFormatter"},{"attributes":{},"id":"2051","type":"LinearScale"},{"attributes":{"callback":null},"id":"2049","type":"DataRange1d"},{"attributes":{"children":[{"id":"2044","subtype":"Figure","type":"Plot"},{"id":"2083","type":"Select"}]},"id":"2085","type":"Column"},{"attributes":{"axis_label":"Tilts","formatter":{"id":"2088","type":"BasicTickFormatter"},"ticker":{"id":"2056","type":"BasicTicker"}},"id":"2055","type":"LinearAxis"},{"attributes":{},"id":"2053","type":"LinearScale"},{"attributes":{"align":"center","text":"AC_monthly of differe","text_color":{"value":"olive"},"text_font":"times","text_font_style":"italic"},"id":"2045","type":"Title"},{"attributes":{"dimension":1,"ticker":{"id":"2061","type":"BasicTicker"}},"id":"2064","type":"Grid"}],"root_ids":["2085"]},"title":"Bokeh Application","version":"1.1.0"}}
+        <script type="application/json" id="1385">
+          {"978309f6-8c21-46b8-848a-20beb4986efd":{"roots":{"references":[{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1292","type":"Line"},{"attributes":{},"id":"1310","type":"Selection"},{"attributes":{"data_source":{"id":"1257","type":"ColumnDataSource"},"glyph":{"id":"1291","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1292","type":"Line"},"selection_glyph":null,"view":{"id":"1294","type":"CDSView"}},"id":"1293","type":"GlyphRenderer"},{"attributes":{},"id":"1277","type":"PanTool"},{"attributes":{},"id":"1311","type":"UnionRenderers"},{"attributes":{"below":[{"id":"1267","type":"LinearAxis"}],"center":[{"id":"1271","type":"Grid"},{"id":"1276","type":"Grid"}],"left":[{"id":"1272","type":"LinearAxis"}],"plot_height":250,"renderers":[{"id":"1293","type":"GlyphRenderer"}],"title":{"id":"1295","type":"Title"},"toolbar":{"id":"1283","type":"Toolbar"},"x_range":{"id":"1259","type":"DataRange1d"},"x_scale":{"id":"1263","type":"LinearScale"},"y_range":{"id":"1261","type":"DataRange1d"},"y_scale":{"id":"1265","type":"LinearScale"}},"id":"1258","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1278","type":"WheelZoomTool"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1312","type":"BoxAnnotation"},{"attributes":{"overlay":{"id":"1312","type":"BoxAnnotation"}},"id":"1279","type":"BoxZoomTool"},{"attributes":{"axis_label":"Monthly Production(kWh)","formatter":{"id":"1307","type":"BasicTickFormatter"},"ticker":{"id":"1273","type":"BasicTicker"}},"id":"1272","type":"LinearAxis"},{"attributes":{},"id":"1280","type":"SaveTool"},{"attributes":{"axis_label":"Tilts","formatter":{"id":"1309","type":"BasicTickFormatter"},"ticker":{"id":"1268","type":"BasicTicker"}},"id":"1267","type":"LinearAxis"},{"attributes":{"align":"center","text":"Energy Production of One Year","text_color":{"value":"olive"},"text_font":"times","text_font_size":{"value":"15pt"},"text_font_style":"italic"},"id":"1295","type":"Title"},{"attributes":{},"id":"1281","type":"ResetTool"},{"attributes":{},"id":"1268","type":"BasicTicker"},{"attributes":{},"id":"1282","type":"HelpTool"},{"attributes":{"callback":null},"id":"1261","type":"DataRange1d"},{"attributes":{},"id":"1307","type":"BasicTickFormatter"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1277","type":"PanTool"},{"id":"1278","type":"WheelZoomTool"},{"id":"1279","type":"BoxZoomTool"},{"id":"1280","type":"SaveTool"},{"id":"1281","type":"ResetTool"},{"id":"1282","type":"HelpTool"}]},"id":"1283","type":"Toolbar"},{"attributes":{"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1291","type":"Line"},{"attributes":{"callback":null},"id":"1259","type":"DataRange1d"},{"attributes":{"source":{"id":"1257","type":"ColumnDataSource"}},"id":"1294","type":"CDSView"},{"attributes":{"callback":null,"data":{"tilt_10":{"__ndarray__":"AAAAAIXiOkAAAACA3YhbQAAAAADtBnNAAAAAQM94fkAAAACgMa6AQAAAAGApO4FAAAAAYBFYgEAAAADA7Ht5QAAAACDdiW9AAAAAgPOvYEAAAACAh6tGQAAAAAAEiyJA","dtype":"float64","shape":[12]},"tilt_15":{"__ndarray__":"AAAAQKaNQUAAAAAAoxRgQAAAAAAZ3XRAAAAA4BDbf0AAAABghwqBQAAAAKB2boFAAAAAANehgEAAAADAslF6QAAAAOCs1HBAAAAAoH2rYkAAAADgiPNLQAAAACDyxCtA","dtype":"float64","shape":[12]},"tilt_20":{"__ndarray__":"AAAAIEuRRUAAAADgBkNiQAAAAGBkh3ZAAAAAwHuEgEAAAACg+VCBQAAAAOBPjYFAAAAAQObWgEAAAAAARQB7QAAAAOAgxnFAAAAAIDyCZEAAAADAL4NQQAAAAAAOgjJA","dtype":"float64","shape":[12]},"tilt_25":{"__ndarray__":"AAAA4LRdSUAAAAAgCUhkQAAAAOBPBHhAAAAAIGgBgUAAAAAANoGBQAAAACA0moFAAAAA4G74gEAAAABAyIZ7QAAAAOCEmHJAAAAAwL4vZkAAAABAguRSQAAAAGD78DZA","dtype":"float64","shape":[12]},"tilt_30":{"__ndarray__":"AAAAwGzkTEAAAABA7R9mQAAAAOAYU3lAAAAAYIlkgUAAAACAGZqBQAAAAID2kYFAAAAAgLADgUAAAAAA6eV7QAAAACB+S3NAAAAAYKexZ0AAAADAKhdVQAAAAEBnFTtA","dtype":"float64","shape":[12]},"tilt_35":{"__ndarray__":"AAAAAJcPUEAAAAAg0MhnQAAAACBEc3pAAAAAIHaqgUAAAABgFpuBQAAAAMB2c4FAAAAAQCP4gEAAAADAIx58QAAAAOC73nNAAAAAgKwGaUAAAABgAxhXQAAAAKAA5T5A","dtype":"float64","shape":[12]},"tilt_40":{"__ndarray__":"AAAAwFyFUUAAAADAlUFpQAAAAECUZHtAAAAA4LbUgUAAAACge4WBQAAAAID1PoFAAAAAoLbWgEAAAABArzB8QAAAACBXUnRAAAAAYBQuakAAAAAAfeVYQAAAAIDcLUFA","dtype":"float64","shape":[12]},"tilt_45":{"__ndarray__":"AAAAwMXSUkAAAAAgoolqQAAAAKCBJHxAAAAAAEnkgUAAAADgJVmBQAAAAOCg9oBAAAAAQAyhgEAAAAAACR18QAAAAEAXpnRAAAAAwGcna0AAAADgkH5aQAAAAEAUvEJA","dtype":"float64","shape":[12]},"tilt_5":{"__ndarray__":"AAAAwL/8MkAAAAAAQMJWQAAAAADgB3FAAAAAwGjjfEAAAADgYDyAQAAAAAB/94BAAAAAQB70f0AAAABAKYB4QAAAAAByL21AAAAAYEgwXUAAAACgp2FBQAAAAIC9iBRA","dtype":"float64","shape":[12]},"tilt_50":{"__ndarray__":"AAAAAIL3U0AAAADgl6BrQAAAAKAcsHxAAAAAgE7agUAAAAAAbhaBQAAAAIA4m4BAAAAAgENYgEAAAABgMON7QAAAAOAJ2nRAAAAAQGDya0AAAADAlOJbQAAAAKD9HERA","dtype":"float64","shape":[12]},"tilt_55":{"__ndarray__":"AAAAwFrzVEAAAADAJYZsQAAAAMBlDH1AAAAA4Me4gUAAAACgN76AQAAAAEAFLIBAAAAAoKP1f0AAAACAj4J7QAAAAIBK7nRAAAAAANeObEAAAACgERFdQAAAACB2UEVA","dtype":"float64","shape":[12]},"tilt_60":{"__ndarray__":"AAAAAB3GVUAAAACgFjptQAAAAGCROH1AAAAAgPh/gUAAAAAgvk+AQAAAAICTUH9AAAAAIEkPf0AAAACg2/t6QAAAAEAQ43RAAAAAwLf8bEAAAABAjAleQAAAAABLVkZA","dtype":"float64","shape":[12]},"tilt_65":{"__ndarray__":"AAAAAJBvVkAAAADgQrxtQAAAAKDxOX1AAAAA4FIwgUAAAAAAUZV/QAAAAEB5H35AAAAAAAn/fUAAAABg6E96QAAAAMCNuHRAAAAAIBY8bUAAAABgsMteQAAAAIBFLkdA","dtype":"float64","shape":[12]},"tilt_70":{"__ndarray__":"AAAAgJjvVkAAAACgkwxuQAAAAKBdEX1AAAAAAK7JgEAAAAAgCmB+QAAAAKCkx3xAAAAAIP7GfEAAAABguH95QAAAAMARb3RAAAAAAAxNbUAAAABAQFdfQAAAAEBc2EdA","dtype":"float64","shape":[12]},"tilt_75":{"__ndarray__":"AAAAQBhGV0AAAABACCtuQAAAAMC1v3xAAAAAYFJLgEAAAABAXwJ9QAAAAKDmTHtAAAAAwLFpe0AAAADgeYx4QAAAAMAIB3RAAAAAgM8vbUAAAACA+6tfQAAAAIB0VEhA","dtype":"float64","shape":[12]},"tilt_80":{"__ndarray__":"AAAAANlyV0AAAACgtRduQAAAAIBnQnxAAAAAwOtqf0AAAADg2IB7QAAAAGBFtXlAAAAAIDvreUAAAACAmXd3QAAAAMDZgHNAAAAAQL3kbEAAAABg1clfQAAAAOA3okhA","dtype":"float64","shape":[12]},"tilt_85":{"__ndarray__":"AAAAoP51V0AAAACgxdJtQAAAAEB+mHtAAAAAYEERfkAAAAAAb9t5QAAAAEA7AnhAAAAAYJpPeEAAAACAIEN2QAAAAOD73HJAAAAAAEFsbEAAAACg37BfQAAAAIC0wUhA","dtype":"float64","shape":[12]},"tilt_90":{"__ndarray__":"AAAAYJhPV0AAAAAAfVxtQAAAAOArvnpAAAAAoJ6IfEAAAACg+BR4QAAAAEAANXZAAAAAALyXdkAAAABA0fB0QAAAAIAJHHJAAAAAQOfGa0AAAADARGFfQAAAAEDfskhA","dtype":"float64","shape":[12]},"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"AAAAwL/8MkAAAAAAQMJWQAAAAADgB3FAAAAAwGjjfEAAAADgYDyAQAAAAAB/94BAAAAAQB70f0AAAABAKYB4QAAAAAByL21AAAAAYEgwXUAAAACgp2FBQAAAAIC9iBRA","dtype":"float64","shape":[12]}},"selected":{"id":"1310","type":"Selection"},"selection_policy":{"id":"1311","type":"UnionRenderers"}},"id":"1257","type":"ColumnDataSource"},{"attributes":{},"id":"1309","type":"BasicTickFormatter"},{"attributes":{"dimension":1,"ticker":{"id":"1273","type":"BasicTicker"}},"id":"1276","type":"Grid"},{"attributes":{"args":{"select":{"id":"1301","type":"Select"},"source":{"id":"1257","type":"ColumnDataSource"}},"code":"\n    // make a shallow copy of the current data dict\n    const new_data = Object.assign({}, source.data)\n\n    // update the y column in the new data dict from the appropriate other column\n    new_data.y = source.data[select.value]\n\n    // set the new data on source, BokehJS will pick this up automatically\n    source.data = new_data\n"},"id":"1302","type":"CustomJS"},{"attributes":{"callback":null,"js_property_callbacks":{"change:value":[{"id":"1302","type":"CustomJS"}]},"options":["tilt_5","tilt_10","tilt_15","tilt_20","tilt_25","tilt_30","tilt_35","tilt_40","tilt_45","tilt_50","tilt_55","tilt_60","tilt_65","tilt_70","tilt_75","tilt_80","tilt_85","tilt_90"],"value":"foo"},"id":"1301","type":"Select"},{"attributes":{"ticker":{"id":"1268","type":"BasicTicker"}},"id":"1271","type":"Grid"},{"attributes":{"children":[{"id":"1258","subtype":"Figure","type":"Plot"},{"id":"1301","type":"Select"}]},"id":"1303","type":"Column"},{"attributes":{},"id":"1265","type":"LinearScale"},{"attributes":{},"id":"1263","type":"LinearScale"},{"attributes":{},"id":"1273","type":"BasicTicker"}],"root_ids":["1303"]},"title":"Bokeh Application","version":"1.1.0"}}
         </script>
         <script type="text/javascript">
           (function() {
@@ -182,8 +356,8 @@ li a:hover:not(.active) {
                 (function(root) {
                   function embed_document(root) {
                     
-                  var docs_json = document.getElementById('2158').textContent;
-                  var render_items = [{"docid":"f0245112-47c1-4b07-971a-72b89cc969bb","roots":{"2085":"1402a763-109b-419b-b349-f0d4a8e50a3d"}}];
+                  var docs_json = document.getElementById('1385').textContent;
+                  var render_items = [{"docid":"978309f6-8c21-46b8-848a-20beb4986efd","roots":{"1303":"7c6adaa9-74c0-4d96-9165-d2eeee747bdf"}}];
                   root.Bokeh.embed.embed_items(docs_json, render_items);
                 
                   }
@@ -213,6 +387,10 @@ li a:hover:not(.active) {
     
   </body>
   
-	<p>This is the figure of monthly production with different tilt of solar panels on the roof. The x axis is month and y axis is monthly production with the unit kWh. You can change the tilt value by click the box. Those data are from PVWatts, not real data. </p>
-	
 </html>
+    <p> The figure showing the how much energy will be producted of each month. You can get the different tendency <br>
+        of energy be selecting different tilts below the figure. The x axis is month of a year and y axis is the <br>
+        energy production with unit kWh.
+    </p>
+    <p> </p>
+    <p> </p> 
