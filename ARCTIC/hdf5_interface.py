@@ -186,11 +186,11 @@ def delete_panel(hdf5_filename, location_name, panel_name):
                         "hdf5 file. Add it to the file using `add_to_hdf5_file` function")
 
     #Prompt the user one last time to make sure they want to delete this file.
-    print("Are you sure you want to delete the day column, when the "
-          "new data does not contain any daily information? ")
+    print("Are you sure you want to delete this panel?")
     delete = input("Type 'y' for yes, and 'n' for no.")
     if delete == 'y':
-        del panel_name_hdf5
+        print(panel_name_hdf5)
+        del panel_location[str(panel_name)]
         print("It's deleted")
     elif delete == 'n':
         hdf5_file.close()
