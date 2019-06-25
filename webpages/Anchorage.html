@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<title>ACEP_ARCTIC</title>
+<style>
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+</style>
+<body>
+
+<ul>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/">Home</a></li>
+  <li><a  class="active" href="https://acep-solar.github.io/ACEP_solar/webpages/Anchorage.html">Anchorage</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Fairbanks.html">Fairbanks</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Ambler-Shungnak-Kobuk.html">Ambler-Shungnak-Kobuk</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Bethel.html">Bethel</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Chickaloon.html">Chickaloon</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Deering.html">Deering</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Denali Park.html">Denali Park</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Fort Yukon.html">Fort Yukon</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Deering.html">Deering</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Galena-Koyukuk-Ruby.html">Galena-Koyukuk-Ruby</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Homer.html">Homer</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Naknek.html">Naknek</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Noatak.html">Noatak</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Noorvik.html">Noorvik</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Soldotna.html">Soldotna</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Valdez.html">Valdez</a></li>
+  <li><a  href="https://acep-solar.github.io/ACEP_solar/webpages/Wasilla-Palmer.html">Wasilla-Palmer</a></li>
+  <li><a href="https://acep-solar.github.io/ACEP_solar/webpages/About_Us.html">About US</a></li>
+</ul>
+
+<div style="margin-left:20%;padding:1px 16px;height:1000px;">
+
+      <h1>Welcome to ARCTIC </h1>
+	
+	<h3>A tool developed in collaboration between the Alaska Center for Energy and Power and the UW Clean Energy Institute
+	</h3>
+
+	<h1>Anchorage </h1>
+
+	<p>Anchorage is in the south-central portion of Alaska, at the terminus of the Cook Inlet, on a peninsula formed by the Knik Arm to the north and the Turnagain Arm to the south. Anchorage is Alaska's most populous city and contains more than 40 percent of the state's total population. Anchorage has a subarctic climate but with strong maritime influences that lead to a relatively moderate climate. Most of its precipitation falls in late summer. Average daytime summer temperatures range from approximately 55 to 78 ��F (13 to 26 ��C); average daytime winter temperatures are about 5 to 30 ��F (-15.0 to -1.1 ��C).</p>
+
+	<p style="font-size:30px;color:'blue'"><i> Actual Data</i>  </p>
+
+	<p style="color:'blue';font-size:20px;"> <i>1. Annual Production </i> </p>
+
+	
+
+
+	<p style="color:'blue';font-size:20px;"> <i>1. Monthly Production </i> </p>
+
+
+
+
+	<p style="color:'blue';font-size:20px;"> <i>1. Error Bar </i> </p>
+
+ <p style="font-size:30px;color:'blue'"><i> PV Watts Prediction   </i>  </p>
+
+<p> The following 3 figures is the visualization of data from the PV Watts V6. We use the PV Watts API to call the prediction. All the following data are based on these hypothetic parameters: <br>(1) System Capacity: 4 kW <br>(2) Losses: 14% <br> (3) Dataset: TMY2 <i>(Weather station name: Anchorage)</i> ;TMY3 <i>(Weather station name: Anchorage/Elmendorf)</i> <br> (4) Inverter Efficiency: 96% <br> (5) lat:61.19 ; lon:-149.69 <br>For anyone who wants to use this APP to see the different prediction by changing the parameters, you can go to this Website:<a href="https://pvwatts.nrel.gov/pvwatts.php">https://pvwatts.nrel.gov/pvwatts.php.</a>
+    <p style="color:'blue';font-size:20px;"> <i>1. Annual Production </i> </p>
+
+<html lang="en">
+
+  <head>
+
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+
+
+
+
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+
+
+
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+
+
+
+
+  </head>
+
+
+  <body>
+
+
+
+
+
+
+              <div class="bk-root" id="2c2789a7-1fb9-47ed-b1a4-f747b9717b48" data-root-id="1580"></div>
+
+
+
+
+
+        <script type="application/json" id="1739">
+          {"8569a9d9-5f1f-4067-a90a-8300d8a7cb62":{"roots":{"references":[{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1599","type":"PanTool"},{"id":"1600","type":"WheelZoomTool"},{"id":"1601","type":"BoxZoomTool"},{"id":"1602","type":"SaveTool"},{"id":"1603","type":"ResetTool"},{"id":"1604","type":"HelpTool"}]},"id":"1605","type":"Toolbar"},{"attributes":{},"id":"1599","type":"PanTool"},{"attributes":{"label":{"value":"TMY3"},"renderers":[{"id":"1629","type":"GlyphRenderer"}]},"id":"1640","type":"LegendItem"},{"attributes":{"label":{"value":"TMY2"},"renderers":[{"id":"1615","type":"GlyphRenderer"}]},"id":"1625","type":"LegendItem"},{"attributes":{},"id":"1595","type":"BasicTicker"},{"attributes":{"line_color":"blue","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1627","type":"Line"},{"attributes":{},"id":"1587","type":"LinearScale"},{"attributes":{"dimension":1,"ticker":{"id":"1595","type":"BasicTicker"}},"id":"1598","type":"Grid"},{"attributes":{},"id":"1620","type":"BasicTickFormatter"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1628","type":"Line"},{"attributes":{"callback":null,"data":{"x":[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90],"y":[766.15380859375,803.5469970703125,836.340087890625,864.2714233398438,887.1473999023438,904.7498779296875,917.0755004882812,924.222900390625,926.2929077148438,923.2631225585938,915.0321044921875,901.6770629882812,883.3048095703125,860.0634155273438,832.1689453125,799.7813110351562,763.0919799804688,722.1099853515625]},"selected":{"id":"1639","type":"Selection"},"selection_policy":{"id":"1638","type":"UnionRenderers"}},"id":"1612","type":"ColumnDataSource"},{"attributes":{"axis_label":"Tilts","formatter":{"id":"1620","type":"BasicTickFormatter"},"ticker":{"id":"1641","type":"FixedTicker"}},"id":"1589","type":"LinearAxis"},{"attributes":{"line_color":"red","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1613","type":"Line"},{"attributes":{"below":[{"id":"1589","type":"LinearAxis"}],"center":[{"id":"1593","type":"Grid"},{"id":"1598","type":"Grid"},{"id":"1624","type":"Legend"}],"left":[{"id":"1594","type":"LinearAxis"}],"plot_height":250,"plot_width":500,"renderers":[{"id":"1615","type":"GlyphRenderer"},{"id":"1629","type":"GlyphRenderer"}],"title":{"id":"1618","type":"Title"},"toolbar":{"id":"1605","type":"Toolbar"},"x_range":{"id":"1581","type":"DataRange1d"},"x_scale":{"id":"1585","type":"LinearScale"},"y_range":{"id":"1583","type":"DataRange1d"},"y_scale":{"id":"1587","type":"LinearScale"}},"id":"1580","subtype":"Figure","type":"Plot"},{"attributes":{"axis_label":"Annual Production (kWh)","formatter":{"id":"1622","type":"BasicTickFormatter"},"ticker":{"id":"1595","type":"BasicTicker"}},"id":"1594","type":"LinearAxis"},{"attributes":{"align":"center","text":"Annual Production at Varying Tilts","text_color":{"value":"olive"},"text_font":"times","text_font_size":{"value":"12pt"},"text_font_style":"italic"},"id":"1618","type":"Title"},{"attributes":{"items":[{"id":"1625","type":"LegendItem"},{"id":"1640","type":"LegendItem"}]},"id":"1624","type":"Legend"},{"attributes":{},"id":"1622","type":"BasicTickFormatter"},{"attributes":{},"id":"1590","type":"BasicTicker"},{"attributes":{"callback":null,"data":{"x":[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90],"y":[797.898193359375,833.8566284179688,865.2819213867188,892.0194091796875,913.9248657226562,930.754150390625,942.5138549804688,949.25390625,951.06640625,947.9615478515625,939.7568969726562,926.5182495117188,908.3829956054688,885.4971923828125,858.05078125,826.3705444335938,790.5059814453125,750.4412231445312]},"selected":{"id":"1658","type":"Selection"},"selection_policy":{"id":"1657","type":"UnionRenderers"}},"id":"1626","type":"ColumnDataSource"},{"attributes":{"overlay":{"id":"1623","type":"BoxAnnotation"}},"id":"1601","type":"BoxZoomTool"},{"attributes":{"callback":null},"id":"1583","type":"DataRange1d"},{"attributes":{"source":{"id":"1626","type":"ColumnDataSource"}},"id":"1630","type":"CDSView"},{"attributes":{},"id":"1638","type":"UnionRenderers"},{"attributes":{},"id":"1658","type":"Selection"},{"attributes":{"callback":null},"id":"1581","type":"DataRange1d"},{"attributes":{"data_source":{"id":"1612","type":"ColumnDataSource"},"glyph":{"id":"1613","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1614","type":"Line"},"selection_glyph":null,"view":{"id":"1616","type":"CDSView"}},"id":"1615","type":"GlyphRenderer"},{"attributes":{},"id":"1603","type":"ResetTool"},{"attributes":{},"id":"1604","type":"HelpTool"},{"attributes":{},"id":"1600","type":"WheelZoomTool"},{"attributes":{},"id":"1639","type":"Selection"},{"attributes":{"ticker":{"id":"1590","type":"BasicTicker"}},"id":"1593","type":"Grid"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1614","type":"Line"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1623","type":"BoxAnnotation"},{"attributes":{},"id":"1602","type":"SaveTool"},{"attributes":{"data_source":{"id":"1626","type":"ColumnDataSource"},"glyph":{"id":"1627","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1628","type":"Line"},"selection_glyph":null,"view":{"id":"1630","type":"CDSView"}},"id":"1629","type":"GlyphRenderer"},{"attributes":{},"id":"1585","type":"LinearScale"},{"attributes":{"source":{"id":"1612","type":"ColumnDataSource"}},"id":"1616","type":"CDSView"},{"attributes":{},"id":"1657","type":"UnionRenderers"},{"attributes":{"ticks":[10,20,30,40,50,60,70,80,90]},"id":"1641","type":"FixedTicker"}],"root_ids":["1580"]},"title":"Bokeh Application","version":"1.1.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+
+                  var docs_json = document.getElementById('1739').textContent;
+                  var render_items = [{"docid":"8569a9d9-5f1f-4067-a90a-8300d8a7cb62","roots":{"1580":"2c2789a7-1fb9-47ed-b1a4-f747b9717b48"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+
+  </body>
+
+</html>
+
+<p> You can see the above figure that when you choose to set the tilt of you panel at about 45 degree in Anchorage, it has more chance to give you a max annual production at about 950 kWh. However, if you choose to set your panel  vertically, it will still generate about 750 kWh power for a year. It is apparent that the prediction based on the TMY3 will give you higher value that TMY2. </p>
+    <p style="color:'blue';font-size:20px;"><i>2. Loss of Annual Production</i> </p>
+
+<html lang="en">
+
+  <head>
+
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+
+
+
+
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+
+
+
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+
+
+
+
+  </head>
+
+
+  <body>
+
+
+
+
+
+
+              <div class="bk-root" id="c9c269a2-72bb-42e0-b34b-434325e1655f" data-root-id="1307"></div>
+
+
+
+
+
+        <script type="application/json" id="1459">
+          {"180eb7ad-728b-4074-bd6a-bf4e1c1ff3a1":{"roots":{"references":[{"attributes":{},"id":"1322","type":"BasicTicker"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1341","type":"Line"},{"attributes":{},"id":"1385","type":"UnionRenderers"},{"attributes":{"dimension":1,"ticker":{"id":"1322","type":"BasicTicker"}},"id":"1325","type":"Grid"},{"attributes":{},"id":"1329","type":"SaveTool"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1350","type":"BoxAnnotation"},{"attributes":{},"id":"1346","type":"BasicTickFormatter"},{"attributes":{},"id":"1312","type":"LinearScale"},{"attributes":{},"id":"1384","type":"Selection"},{"attributes":{"align":"center","text":"Annual Production loss of different tilts","text_color":{"value":"olive"},"text_font":"times","text_font_size":{"value":"12pt"},"text_font_style":"italic"},"id":"1345","type":"Title"},{"attributes":{},"id":"1326","type":"PanTool"},{"attributes":{},"id":"1330","type":"ResetTool"},{"attributes":{"ticks":[10,20,30,40,50,60,70,80,90]},"id":"1368","type":"FixedTicker"},{"attributes":{"source":{"id":"1353","type":"ColumnDataSource"}},"id":"1357","type":"CDSView"},{"attributes":{"items":[{"id":"1352","type":"LegendItem"},{"id":"1367","type":"LegendItem"}]},"id":"1351","type":"Legend"},{"attributes":{"axis_label":"Tilts","formatter":{"id":"1346","type":"BasicTickFormatter"},"ticker":{"id":"1368","type":"FixedTicker"}},"id":"1316","type":"LinearAxis"},{"attributes":{},"id":"1365","type":"UnionRenderers"},{"attributes":{"below":[{"id":"1316","type":"LinearAxis"}],"center":[{"id":"1320","type":"Grid"},{"id":"1325","type":"Grid"},{"id":"1351","type":"Legend"}],"left":[{"id":"1321","type":"LinearAxis"}],"plot_height":250,"plot_width":500,"renderers":[{"id":"1342","type":"GlyphRenderer"},{"id":"1356","type":"GlyphRenderer"}],"title":{"id":"1345","type":"Title"},"toolbar":{"id":"1332","type":"Toolbar"},"x_range":{"id":"1308","type":"DataRange1d"},"x_scale":{"id":"1312","type":"LinearScale"},"y_range":{"id":"1310","type":"DataRange1d"},"y_scale":{"id":"1314","type":"LinearScale"}},"id":"1307","subtype":"Figure","type":"Plot"},{"attributes":{"label":{"value":"TMY3"},"renderers":[{"id":"1356","type":"GlyphRenderer"}]},"id":"1367","type":"LegendItem"},{"attributes":{"line_color":"red","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1340","type":"Line"},{"attributes":{},"id":"1331","type":"HelpTool"},{"attributes":{},"id":"1314","type":"LinearScale"},{"attributes":{"format":"0 %"},"id":"1370","type":"NumeralTickFormatter"},{"attributes":{},"id":"1364","type":"Selection"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1326","type":"PanTool"},{"id":"1327","type":"WheelZoomTool"},{"id":"1328","type":"BoxZoomTool"},{"id":"1329","type":"SaveTool"},{"id":"1330","type":"ResetTool"},{"id":"1331","type":"HelpTool"}]},"id":"1332","type":"Toolbar"},{"attributes":{"overlay":{"id":"1350","type":"BoxAnnotation"}},"id":"1328","type":"BoxZoomTool"},{"attributes":{"ticker":{"id":"1317","type":"BasicTicker"}},"id":"1320","type":"Grid"},{"attributes":{"callback":null,"data":{"x":[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90],"y":{"__ndarray__":"wMzx3vwgxj9c12skMPbAPyhrm8g83Lg/2B6QcBIksT8QRLOuJ6OlP6AE1Ou/0Jc/ALeLRB1hhD8AhWpYjU5iPwAAAAAAAAAAAA1U0IPLaj+AJfOusOWIP+AZVNtdNps/sIoPU+PCpz8IY9PHyk2yP1gF2GlZA7o/bOtlmWZ7wT+ghpQeTY3GP9BIOHYON8w/","dtype":"float64","shape":[18]}},"selected":{"id":"1364","type":"Selection"},"selection_policy":{"id":"1365","type":"UnionRenderers"}},"id":"1339","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1355","type":"Line"},{"attributes":{"callback":null},"id":"1308","type":"DataRange1d"},{"attributes":{"data_source":{"id":"1339","type":"ColumnDataSource"},"glyph":{"id":"1340","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1341","type":"Line"},"selection_glyph":null,"view":{"id":"1343","type":"CDSView"}},"id":"1342","type":"GlyphRenderer"},{"attributes":{},"id":"1317","type":"BasicTicker"},{"attributes":{"line_color":"blue","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1354","type":"Line"},{"attributes":{"source":{"id":"1339","type":"ColumnDataSource"}},"id":"1343","type":"CDSView"},{"attributes":{"axis_label":"loss (%)","formatter":{"id":"1370","type":"NumeralTickFormatter"},"ticker":{"id":"1322","type":"BasicTicker"}},"id":"1321","type":"LinearAxis"},{"attributes":{"callback":null,"data":{"x":[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90],"y":{"__ndarray__":"9LWmN0CdxD8wqt5Xroy/P8iYfs46F7c/AFyKS5zJrz8Qyo4msf6jP+A+b1az3pU/ADlVJLVqgj8AaP5YUTlfPwAAAAAAAAAAALNRvGC+aj/Av05whFqIP2ABLrY/bpo/4EEiC3P6pj8AspLTPKaxP6Cw4DGDCbk/XEJSBkTIwD8UE00Z8ZvFPxwB/slUAMs/","dtype":"float64","shape":[18]}},"selected":{"id":"1384","type":"Selection"},"selection_policy":{"id":"1385","type":"UnionRenderers"}},"id":"1353","type":"ColumnDataSource"},{"attributes":{},"id":"1327","type":"WheelZoomTool"},{"attributes":{"callback":null},"id":"1310","type":"DataRange1d"},{"attributes":{"data_source":{"id":"1353","type":"ColumnDataSource"},"glyph":{"id":"1354","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1355","type":"Line"},"selection_glyph":null,"view":{"id":"1357","type":"CDSView"}},"id":"1356","type":"GlyphRenderer"},{"attributes":{"label":{"value":"TMY2"},"renderers":[{"id":"1342","type":"GlyphRenderer"}]},"id":"1352","type":"LegendItem"}],"root_ids":["1307"]},"title":"Bokeh Application","version":"1.1.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+
+                  var docs_json = document.getElementById('1459').textContent;
+                  var render_items = [{"docid":"180eb7ad-728b-4074-bd6a-bf4e1c1ff3a1","roots":{"1307":"c9c269a2-72bb-42e0-b34b-434325e1655f"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+
+  </body>
+
+</html>
+
+<p>This figure is more clear to tell you how percentage of the annual production you will lose, compared with the tilt that will give you the max annual production.</p>
+    <p style="color:'blue';font-size:20px;"><i> 3. The tendency of monthly production</i> </p>
+
+<html lang="en">
+
+  <head>
+
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+
+
+
+
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.1.0.min.css" type="text/css" />
+
+
+
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.1.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+
+
+
+
+  </head>
+
+
+  <body>
+
+
+
+
+
+
+              <div class="bk-root" id="b370da84-c6b1-4a95-bd31-d9cd529a6f84" data-root-id="1176"></div>
+
+
+
+
+
+        <script type="application/json" id="1258">
+          {"855f9836-75a6-48b1-bafb-cd19194af536":{"roots":{"references":[{"attributes":{},"id":"1151","type":"WheelZoomTool"},{"attributes":{"children":[{"id":"1131","subtype":"Figure","type":"Plot"},{"id":"1174","type":"Select"}]},"id":"1176","type":"Column"},{"attributes":{"overlay":{"id":"1183","type":"BoxAnnotation"}},"id":"1152","type":"BoxZoomTool"},{"attributes":{},"id":"1154","type":"ResetTool"},{"attributes":{},"id":"1153","type":"SaveTool"},{"attributes":{"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1164","type":"Line"},{"attributes":{"source":{"id":"1130","type":"ColumnDataSource"}},"id":"1167","type":"CDSView"},{"attributes":{"align":"center","text":"Energy Production of One Year","text_color":{"value":"olive"},"text_font":"times","text_font_size":{"value":"15pt"},"text_font_style":"italic"},"id":"1168","type":"Title"},{"attributes":{"data_source":{"id":"1130","type":"ColumnDataSource"},"glyph":{"id":"1164","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1165","type":"Line"},"selection_glyph":null,"view":{"id":"1167","type":"CDSView"}},"id":"1166","type":"GlyphRenderer"},{"attributes":{"args":{"select":{"id":"1174","type":"Select"},"source":{"id":"1130","type":"ColumnDataSource"}},"code":"\n    // make a shallow copy of the current data dict\n    const new_data = Object.assign({}, source.data)\n\n    // update the y column in the new data dict from the appropriate other column\n    new_data.y = source.data[select.value]\n\n    // set the new data on source, BokehJS will pick this up automatically\n    source.data = new_data\n"},"id":"1175","type":"CustomJS"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1150","type":"PanTool"},{"id":"1151","type":"WheelZoomTool"},{"id":"1152","type":"BoxZoomTool"},{"id":"1153","type":"SaveTool"},{"id":"1154","type":"ResetTool"},{"id":"1155","type":"HelpTool"}]},"id":"1156","type":"Toolbar"},{"attributes":{},"id":"1179","type":"BasicTickFormatter"},{"attributes":{},"id":"1155","type":"HelpTool"},{"attributes":{},"id":"1150","type":"PanTool"},{"attributes":{},"id":"1184","type":"Selection"},{"attributes":{},"id":"1181","type":"BasicTickFormatter"},{"attributes":{"below":[{"id":"1140","type":"LinearAxis"}],"center":[{"id":"1144","type":"Grid"},{"id":"1149","type":"Grid"}],"left":[{"id":"1145","type":"LinearAxis"}],"plot_height":250,"renderers":[{"id":"1166","type":"GlyphRenderer"}],"title":{"id":"1168","type":"Title"},"toolbar":{"id":"1156","type":"Toolbar"},"x_range":{"id":"1132","type":"DataRange1d"},"x_scale":{"id":"1136","type":"LinearScale"},"y_range":{"id":"1134","type":"DataRange1d"},"y_scale":{"id":"1138","type":"LinearScale"}},"id":"1131","subtype":"Figure","type":"Plot"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1165","type":"Line"},{"attributes":{"dimension":1,"ticker":{"id":"1146","type":"BasicTicker"}},"id":"1149","type":"Grid"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1183","type":"BoxAnnotation"},{"attributes":{"axis_label":"Monthly Production(kWh)","formatter":{"id":"1181","type":"BasicTickFormatter"},"ticker":{"id":"1146","type":"BasicTicker"}},"id":"1145","type":"LinearAxis"},{"attributes":{},"id":"1185","type":"UnionRenderers"},{"attributes":{},"id":"1136","type":"LinearScale"},{"attributes":{"callback":null},"id":"1132","type":"DataRange1d"},{"attributes":{"callback":null},"id":"1134","type":"DataRange1d"},{"attributes":{"callback":null,"data":{"tilt_10":{"__ndarray__":"AAAAIM3QRUAAAAAAsD5eQAAAAMAGi3FAAAAAADF5eEAAAACgST6AQAAAACDVHYBAAAAAQEKwfkAAAAAgpTZ3QAAAAKDgRnBAAAAA4GgsYEAAAADAE/5PQAAAAKCtkDlA","dtype":"float64","shape":[12]},"tilt_15":{"__ndarray__":"AAAAwFVHSUAAAACgKNFgQAAAAMD/z3JAAAAAwLNheUAAAABgBJaAQAAAAMD+RoBAAAAAIB0Vf0AAAABgRdN3QAAAAIBLMXFAAAAAAASgYUAAAADAaPRSQAAAAOAXHD9A","dtype":"float64","shape":[12]},"tilt_20":{"__ndarray__":"AAAA4FGSTEAAAADAvmJiQAAAAEDN8XNAAAAAoGgiekAAAACAEdeAQAAAAECLXIBAAAAA4P9Tf0AAAADgRE14QAAAACAF/nFAAAAAYPfzYkAAAAAghsVVQAAAAGDyPEJA","dtype":"float64","shape":[12]},"tilt_25":{"__ndarray__":"AAAAIDOjT0AAAACgb9BjQAAAACDI73RAAAAAoJq7ekAAAADgGgCBQAAAAGBuX4BAAAAAoN1rf0AAAACgCaV4QAAAAODNrHJAAAAAwMMlZEAAAADgPGVYQAAAAODDw0RA","dtype":"float64","shape":[12]},"tilt_30":{"__ndarray__":"AAAA4B45UUAAAAAgSBhlQAAAAGBeyXVAAAAAoIMte0AAAAAAFxGBQAAAAADaTIBAAAAA4Ahaf0AAAADg4Np4QAAAACBQPXNAAAAAAAk0ZUAAAACAIs1aQAAAAKBWGkdA","dtype":"float64","shape":[12]},"tilt_35":{"__ndarray__":"AAAAgOV9UkAAAACAQTlmQAAAAEBzfnZAAAAAQFh2e0AAAAAAsQqBQAAAAMBTJYBAAAAAgLQff0AAAAAgw+94QAAAAABgr3NAAAAAAPAdZkAAAABADPpcQAAAAOCcPElA","dtype":"float64","shape":[12]},"tilt_40":{"__ndarray__":"AAAAoJGeU0AAAAAgzTJnQAAAAIDjDndAAAAAoL+We0AAAABAD+6AQAAAACDs039AAAAAoIm/fkAAAAAg2eN4QAAAAAAAA3RAAAAAoAnjZkAAAAAAZ+peQAAAACBhKEtA","dtype":"float64","shape":[12]},"tilt_45":{"__ndarray__":"AAAA4G+aVEAAAAAAkwRoQAAAAKCaendAAAAAYPiPe0AAAABAyLuAQAAAAID0OX9AAAAA4Ks6fkAAAACgf7Z4QAAAACA0OHRAAAAAAAaDZ0AAAADApU5gQAAAACBm3ExA","dtype":"float64","shape":[12]},"tilt_5":{"__ndarray__":"AAAA4NdKQkAAAABAY6haQAAAAGA3JHBAAAAAYPdod0AAAAAg755/QAAAAKC9v39AAAAA4BkjfkAAAADgDHh2QAAAAECvfm5AAAAAQGk7XUAAAADApf1JQAAAAIC2FzRA","dtype":"float64","shape":[12]},"tilt_50":{"__ndarray__":"AAAAAPxwVUAAAABAX65oQAAAAOADwHdAAAAAAHlie0AAAABg/3KAQAAAAKAnfX5AAAAAgD6SfUAAAABAFWh4QAAAAOAWT3RAAAAA4LH9Z0AAAAAAGQlhQAAAAEC5V05A","dtype":"float64","shape":[12]},"tilt_55":{"__ndarray__":"AAAAQL8hVkAAAAAgFTBpQAAAAIBg4HdAAAAAAPwPe0AAAADA5RKAQAAAAGDSmH1AAAAAIBXDfEAAAAAg1/h3QAAAAADUR3RAAAAAwP9SaEAAAABAS6RhQAAAAGCSmU9A","dtype":"float64","shape":[12]},"tilt_60":{"__ndarray__":"AAAAAGesVkAAAADgsIlpQAAAAABF3XdAAAAAQIOYekAAAACANzh/QAAAAECpjXxAAAAAwM/Ne0AAAADAg2l3QAAAAGCxInRAAAAAgPyCaEAAAADgEiBiQAAAAGC9UFBA","dtype":"float64","shape":[12]},"tilt_65":{"__ndarray__":"AAAAoLkQV0AAAADATLtpQAAAAKBDt3dAAAAAgLH7eUAAAACA2B5+QAAAAEDOXXtAAAAAQD20ekAAAACg8Lp2QAAAACDt33NAAAAAwNCNaEAAAAAgU3xiQAAAAMCUt1BA","dtype":"float64","shape":[12]},"tilt_70":{"__ndarray__":"AAAAQJVOV0AAAACAA8VpQAAAAOCabndAAAAAICY6eUAAAACgudt8QAAAAGAHDHpAAAAAIK54eUAAAACgL+51QAAAAMDsf3NAAAAA4LpzaEAAAADA+7hiQAAAACD8AFFA","dtype":"float64","shape":[12]},"tilt_75":{"__ndarray__":"AAAAYPVlV0AAAACAFKdpQAAAAODCAndAAAAA4HxVeEAAAADAVnF7QAAAAGBCnHhAAAAAoKgfeEAAAADgagR1QAAAAAAbA3NAAAAAQA01aEAAAADADNZiQAAAAGDQLFFA","dtype":"float64","shape":[12]},"tilt_80":{"__ndarray__":"AAAAYPxWV0AAAADgxWFpQAAAAGD6cXZAAAAAAGJMd0AAAADgKeR5QAAAAIArFHdAAAAAINOpdkAAAADAOf9zQAAAAED8aXJAAAAAoCrSZ0AAAADgmdNiQAAAAOAIO1FA","dtype":"float64","shape":[12]},"tilt_85":{"__ndarray__":"AAAAIPghV0AAAADgePVoQAAAAMD2vXVAAAAA4EIhdkAAAABA0zV4QAAAAGA+dHVAAAAAINMadUAAAADg0d9yQAAAAGAVtXFAAAAAwI5LZ0AAAACgxrFiQAAAAMDfK1FA","dtype":"float64","shape":[12]},"tilt_90":{"__ndarray__":"AAAAwDvHVkAAAAAguGJoQAAAAICq53RAAAAAILjVdEAAAABgyWZ2QAAAAIBLuHNAAAAAAEZxc0AAAADg4KdxQAAAAKAK5XBAAAAAIOqhZkAAAADAxnBiQAAAAMB2/1BA","dtype":"float64","shape":[12]},"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"AAAA4NdKQkAAAABAY6haQAAAAGA3JHBAAAAAYPdod0AAAAAg755/QAAAAKC9v39AAAAA4BkjfkAAAADgDHh2QAAAAECvfm5AAAAAQGk7XUAAAADApf1JQAAAAIC2FzRA","dtype":"float64","shape":[12]}},"selected":{"id":"1184","type":"Selection"},"selection_policy":{"id":"1185","type":"UnionRenderers"}},"id":"1130","type":"ColumnDataSource"},{"attributes":{},"id":"1138","type":"LinearScale"},{"attributes":{},"id":"1146","type":"BasicTicker"},{"attributes":{"axis_label":"Tilts","formatter":{"id":"1179","type":"BasicTickFormatter"},"ticker":{"id":"1141","type":"BasicTicker"}},"id":"1140","type":"LinearAxis"},{"attributes":{"callback":null,"js_property_callbacks":{"change:value":[{"id":"1175","type":"CustomJS"}]},"options":["tilt_5","tilt_10","tilt_15","tilt_20","tilt_25","tilt_30","tilt_35","tilt_40","tilt_45","tilt_50","tilt_55","tilt_60","tilt_65","tilt_70","tilt_75","tilt_80","tilt_85","tilt_90"],"value":"foo"},"id":"1174","type":"Select"},{"attributes":{"ticker":{"id":"1141","type":"BasicTicker"}},"id":"1144","type":"Grid"},{"attributes":{},"id":"1141","type":"BasicTicker"}],"root_ids":["1176"]},"title":"Bokeh Application","version":"1.1.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+
+                  var docs_json = document.getElementById('1258').textContent;
+                  var render_items = [{"docid":"855f9836-75a6-48b1-bafb-cd19194af536","roots":{"1176":"b370da84-c6b1-4a95-bd31-d9cd529a6f84"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+
+  </body>
+
+</html>
+
+<p> The figure showing the how much energy will be producted of each month. You can get the different tendency
+        of energy be selecting different tilts below the figure. The x axis is month of a year and y axis is the energy production with unit kWh.
+    </p>
+    
