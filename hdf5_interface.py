@@ -4,6 +4,8 @@ import os
 import h5py
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
 
 def create_hdf5_file(hdf5_filename):
     """Function to initialize the hdf5 file type on your computer"""
@@ -12,7 +14,7 @@ def create_hdf5_file(hdf5_filename):
     solar_data_storage = h5py.File('{}.h5'.format(hdf5_filename), 'w-')
     solar_data_storage.close()
 
-def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
+def add_to_hdf5_file(hdf5_filename, data_filename, panel_name, interpolate = False, polynomial_order = 5):
     """This function assumes a specific layout in a pandas dataframe for a single solar panel,
     and takes that data and adds it into an hdf5 file with the name that is passed."""
     #Have a quick conversion that converts all the text inputs to lowercase.
@@ -46,6 +48,10 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
             raise ValueError("This panel already exists in the HDF5 structure")
     #If it doesn't exist, then make a group for it to place all the datasets within
     panel_data = hdf5_location_group.create_group(panel_name)
+    
+    #Check if interpolation is needed. If so, call the interpolation function.
+    if interpolate == True:
+        solar_dataframe = interpolate_missing_data(solar_dataframe, polynomial_order)
 
     #GOOD OPPORTUNITY FOR A TEST - NEED TO BE SURE ALL ARE THE SAME LENGTH
     #Make numpy arrays for energy and year values.
@@ -71,7 +77,7 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name):
     #Then close the HDF5 file to make sure no accidental writings occur.
     hdf5_file.close()
 
-def update_existing_panel_entry(hdf5_filename, data_filename, panel_name):
+def update_existing_panel_entry(hdf5_filename, data_filename, panel_name, interpolate = False, polynomial_order = 5):
     """This function updates panel entries in the HDF5 file with new data"""
     #First, check to see if that panel data already exists, otherwise raise errors
     if os.path.exists('{}.h5'.format(hdf5_filename)):
@@ -97,6 +103,10 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name):
         raise ValueError("The passed panel name does not exist in the"
                         "hdf5 file. Add it to the file using `add_to_hdf5_file` function")
 
+    #Check if interpolation is needed. If so, call the interpolation function.
+    if interpolate == True:
+        solar_dataframe = interpolate_missing_data(solar_dataframe, polynomial_order)
+    
     #Now, we need to update the information stored in that panel entry.
     #First, we delete the existing entry, then we add the new data.
     
@@ -185,3 +195,89 @@ def hdf5_to_dataframe(hdf5_filename, location_name, panel_name):
     dataframe['Location'][0] = str(location_name)
     hdf5_file.close()
     return dataframe
+
+def interpolate_missing_data(dataframe, polynomial_order = 5):
+    
+    """
+    This is a function that using machine learning in 'polynomial' that in SKLEARN to predict the missing data 
+    and will return to a dataframe which has the predicted data and with a new column name 'status' with 0 
+    representing that this data is an asumption.
+    
+    Args:
+       dataframe(DataFrame):name of the dataframe which has missing data
+       polynomial_order(int): order of polynomial used to fit missing data
+       
+    Returns:
+       dataframe_with_predicted(DataFrame): A dataframe with any missing values replaced by interpolated values
+    
+    """
+    
+    #drop the 'DC capacity' & 'Location' columns. They contain NaNs and will influence the 'isnan' judgement.
+    dataframe_with_missing = dataframe.drop(['DC Capacity', 'Location'], axis=1)
+    
+    # change the 'month' to the number instead of 'words'
+    month_change = {'January':1,'February':2,'March':3,'April':4, 'May':5,'June':6,'July':7,
+                'August':8,'September':9,'October':10, 'November':11,'December':12, 'Jan': 1,
+               'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8,
+               'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12} 
+    dataframe_with_missing['Month'] = dataframe_with_missing['Month'].map(month_change)
+    
+    # Find the 'dates' that have missing data
+    list_of_missing = []
+    index_of_missing = []
+    for i in range(len(dataframe_with_missing)):
+        if np.isnan(dataframe_with_missing['Energy'][i]) == True:
+            index_of_missing.append(i)
+            year_month = [dataframe_with_missing['Year'][i],dataframe_with_missing['Month'][i]]
+            list_of_missing.append(year_month)
+            
+    #drop the missing data
+    dataframe_without_missing = dataframe_with_missing.dropna()
+    dataframe_without_missing.reset_index(drop=True,inplace=True)
+    
+    #creating the x,y to train the model
+    x_list=[]
+    for i in range(len(dataframe_without_missing)):
+        a = [dataframe_without_missing['Year'][i],dataframe_without_missing['Month'][i]]
+        x_list.append(a)
+
+    y_list=[]
+    for i in range(len(dataframe_without_missing)):
+        b = dataframe_without_missing['Energy'][i]
+        y_list.append(b)
+    
+    # preparing the x_need_predicted for the model
+    x_need_predict=list_of_missing
+    
+    # design the model
+    poly = PolynomialFeatures(degree=polynomial_order)
+    
+    # Transfer the preditor into poly way
+    x_train = poly.fit_transform(x_list)
+    x_need_predict_transfer = poly.fit_transform(x_need_predict)
+    
+    # Instantiate the model
+    lg = LinearRegression()
+    
+    # Run the actual fit on the model
+    lg.fit(x_train, y_list)
+    
+    # Use the model that you fit to predict the new data
+    y_predicted = lg.predict(x_need_predict_transfer)
+    
+    # Combine the new, predicted data with the old dataframe.
+    list_of_predicted = y_predicted.tolist()
+    fill = pd.DataFrame(index=index_of_missing,data=list_of_predicted,columns=['Energy'])
+    dataframe_with_predicted = dataframe.fillna(fill)
+    
+    # Update any interpolated values to give them a value of 1.
+    for i in index_of_missing:
+        dataframe_with_predicted['Interpolate'][i] = 1
+    
+    for i in range(len(index_of_missing)):
+        if dataframe_with_predicted['Energy'][i] < 0:
+            dataframe_with_predicted['Energy'][i] = 0
+        else:
+            pass
+        
+    return(dataframe_with_predicted)
