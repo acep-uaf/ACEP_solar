@@ -45,6 +45,7 @@ def add_to_hdf5_file(hdf5_filename, data_filename, panel_name, interpolate = Fal
         if names == panel_name:
             print("You've already entered this panel's data!")
             print("You should use the `update_panel_data` function instead.")
+            hdf5_file.close()
             raise ValueError("This panel already exists in the HDF5 structure")
     #If it doesn't exist, then make a group for it to place all the datasets within
     panel_data = hdf5_location_group.create_group(panel_name)
@@ -92,6 +93,7 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name, interp
     panel_location = hdf5_file.get(solar_dataframe['Location'][0])
     if panel_location == None:
         print("Panel Location" + str(panel_location))
+        hdf5_file.close()
         raise ValueError("The passed panel location does not exist in "
                        "the hdf5 file. Check the location info.")
     #Check to see if the panel exists, and if so load it from the file
@@ -100,6 +102,7 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name, interp
         print(panel_name_hdf5)
         print(panel_location)
         print(solar_dataframe['Location'][0])
+        hdf5_file.close()
         raise ValueError("The passed panel name does not exist in the"
                         "hdf5 file. Add it to the file using `add_to_hdf5_file` function")
 
@@ -125,6 +128,7 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name, interp
             if delete == 'y':
                 del panel_name_hdf5['Day']
             elif delete == 'n':
+                hdf5_file.close()
                 raise ValueError("User declined to progress. Check data being input.")
     elif 'Day' in solar_dataframe.columns:
         panel_name_hdf5['Day'] = solar_dataframe['Day']
@@ -152,6 +156,44 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name, interp
     panel_name_hdf5.attrs.__setitem__('DC Capacity', solar_dataframe['DC Capacity'][0])
 
     #And close the file, to keep things neat.
+    hdf5_file.close()
+
+def delete_panel(hdf5_filename, location_name, panel_name):
+    """This function takes in a panel name and deletes that panel from the HDF5 file"""
+    #First, check to see if the hdf5 file exists, otherwise raise errors
+    if os.path.exists('{}.h5'.format(hdf5_filename)):
+        hdf5_file = h5py.File('{}.h5'.format(hdf5_filename), 'r+')
+    else:
+        raise ValueError("The passed HDF5 filename does not exist."
+                        "Check to see if a there are typos in the filename")
+    
+    #Ok, now check to see if the panel location exists in the HDF5 file
+    panel_location = hdf5_file.get(location_name)
+    if panel_location == None:
+        print("Panel Location" + str(panel_location))
+        hdf5_file.close()
+        raise ValueError("The passed panel location does not exist in "
+                       "the hdf5 file. Check the location info.")
+        
+    #Check to see if the panel exists
+    panel_name_hdf5 = panel_location.get(panel_name)
+    if panel_name_hdf5 == None:
+        print(panel_name_hdf5)
+        print(panel_location)
+        print(solar_dataframe['Location'][0])
+        hdf5_file.close()
+        raise ValueError("The passed panel name does not exist in the"
+                        "hdf5 file. Add it to the file using `add_to_hdf5_file` function")
+
+    #Prompt the user one last time to make sure they want to delete this file.
+    print("Are you sure you want to delete the day column, when the "
+          "new data does not contain any daily information? ")
+    delete = raw_input("Type 'y' for yes, and 'n' for no.")
+    if delete == 'y':
+        del panel_name_hdf5
+    elif delete == 'n':
+        hdf5_file.close()
+        raise ValueError("User declined to progress. Check data being input.")
     hdf5_file.close()
 
 def extract_file_to_dataframe(filename):
