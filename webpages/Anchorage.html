@@ -33,7 +33,6 @@ li a:hover:not(.active) {
     color: white;
 }
 </style>
-</head>
 <body>
 
 <ul>
@@ -85,8 +84,7 @@ li a:hover:not(.active) {
 
  <p style="font-size:30px;color:'blue'"><i> PV Watts Prediction   </i>  </p>
 
-<p> The following 3 figures is the visualization of data from the PV Watts V6. We use the PV Watts API to call the prediction. All the following data are based on these hypothetic parameters: <br>(1) System Capacity: 4 kW <br>(2) Losses: 14% <br> (3) Dataset: TMY2 <i>(Weather station name: Fairbanks)</i> <br> (3) Inverter Efficiency: 96% <br> For anyone who wants to use this APP to see the different prediction by changing the parameters, you can go to this Website:<a href="https://pvwatts.nrel.gov/pvwatts.php">https://pvwatts.nrel.gov/pvwatts.php.</a>
-Dataset: （1）TMY2 <i>(Weather station name: Fairbanks) （2）TMY3 </i>
+<p> The following 3 figures is the visualization of data from the PV Watts V6. We use the PV Watts API to call the prediction. All the following data are based on these hypothetic parameters: <br>(1) System Capacity: 4 kW <br>(2) Losses: 14% <br> (3) Dataset: TMY2 <i>(Weather station name: Anchorage)</i> ;TMY3 <i>(Weather station name: Anchorage/Elmendorf)</i> <br> (4) Inverter Efficiency: 96% <br> (5) lat:61.19 ; lon:-149.69 <br>For anyone who wants to use this APP to see the different prediction by changing the parameters, you can go to this Website:<a href="https://pvwatts.nrel.gov/pvwatts.php">https://pvwatts.nrel.gov/pvwatts.php.</a>
     <p style="color:'blue';font-size:20px;"> <i>1. Annual Production </i> </p>
 
 <html lang="en">
@@ -170,7 +168,7 @@ Dataset: （1）TMY2 <i>(Weather station name: Fairbanks) （2）TMY3 </i>
 
 </html>
 
-<p> You can see the above figure that when you choose to set the tilt of you panel at about 50 degree in Fairbanks, it has more chance to give you a max annual production at about 1020 kWh. However, if you choose to set your panel  vertically, it will still generate about 800 kWh power for a year. </p>
+<p> You can see the above figure that when you choose to set the tilt of you panel at about 45 degree in Anchorage, it has more chance to give you a max annual production at about 950 kWh. However, if you choose to set your panel  vertically, it will still generate about 750 kWh power for a year. It is apparent that the prediction based on the TMY3 will give you higher value that TMY2. </p>
     <p style="color:'blue';font-size:20px;"><i>2. Loss of Annual Production</i> </p>
 
 <html lang="en">
@@ -343,3 +341,4 @@ Dataset: （1）TMY2 <i>(Weather station name: Fairbanks) （2）TMY3 </i>
 <p> The figure showing the how much energy will be producted of each month. You can get the different tendency
         of energy be selecting different tilts below the figure. The x axis is month of a year and y axis is the energy production with unit kWh.
     </p>
+    
