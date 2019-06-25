@@ -1,0 +1,87 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.1.0.min.css" type="text/css" />
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.1.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="f6a40c22-7309-4f07-8616-c383c271ada9" data-root-id="1047"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1129">
+          {"657c7044-5a82-483d-8aa3-d5d2a152c73f":{"roots":{"references":[{"attributes":{"args":{"select":{"id":"1045","type":"Select"},"source":{"id":"1001","type":"ColumnDataSource"}},"code":"\n    // make a shallow copy of the current data dict\n    const new_data = Object.assign({}, source.data)\n\n    // update the y column in the new data dict from the appropriate other column\n    new_data.y = source.data[select.value]\n\n    // set the new data on source, BokehJS will pick this up automatically\n    source.data = new_data\n"},"id":"1046","type":"CustomJS"},{"attributes":{"overlay":{"id":"1056","type":"BoxAnnotation"}},"id":"1023","type":"BoxZoomTool"},{"attributes":{},"id":"1024","type":"SaveTool"},{"attributes":{},"id":"1025","type":"ResetTool"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1036","type":"Line"},{"attributes":{},"id":"1026","type":"HelpTool"},{"attributes":{"callback":null},"id":"1003","type":"DataRange1d"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1021","type":"PanTool"},{"id":"1022","type":"WheelZoomTool"},{"id":"1023","type":"BoxZoomTool"},{"id":"1024","type":"SaveTool"},{"id":"1025","type":"ResetTool"},{"id":"1026","type":"HelpTool"}]},"id":"1027","type":"Toolbar"},{"attributes":{"callback":null},"id":"1005","type":"DataRange1d"},{"attributes":{"data_source":{"id":"1001","type":"ColumnDataSource"},"glyph":{"id":"1035","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1036","type":"Line"},"selection_glyph":null,"view":{"id":"1038","type":"CDSView"}},"id":"1037","type":"GlyphRenderer"},{"attributes":{},"id":"1007","type":"LinearScale"},{"attributes":{"source":{"id":"1001","type":"ColumnDataSource"}},"id":"1038","type":"CDSView"},{"attributes":{},"id":"1009","type":"LinearScale"},{"attributes":{"callback":null,"js_property_callbacks":{"change:value":[{"id":"1046","type":"CustomJS"}]},"options":["tilt_5","tilt_10","tilt_15","tilt_20","tilt_25","tilt_30","tilt_35","tilt_40","tilt_45","tilt_50","tilt_55","tilt_60","tilt_65","tilt_70","tilt_75","tilt_80","tilt_85","tilt_90"],"value":"foo"},"id":"1045","type":"Select"},{"attributes":{"axis_label":"Month","formatter":{"id":"1053","type":"BasicTickFormatter"},"ticker":{"id":"1012","type":"BasicTicker"}},"id":"1011","type":"LinearAxis"},{"attributes":{},"id":"1012","type":"BasicTicker"},{"attributes":{"ticker":{"id":"1012","type":"BasicTicker"}},"id":"1015","type":"Grid"},{"attributes":{"axis_label":"Monthly Production(kWh)","formatter":{"id":"1051","type":"BasicTickFormatter"},"ticker":{"id":"1017","type":"BasicTicker"}},"id":"1016","type":"LinearAxis"},{"attributes":{},"id":"1051","type":"BasicTickFormatter"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{},"id":"1053","type":"BasicTickFormatter"},{"attributes":{"dimension":1,"ticker":{"id":"1017","type":"BasicTicker"}},"id":"1020","type":"Grid"},{"attributes":{},"id":"1054","type":"UnionRenderers"},{"attributes":{},"id":"1055","type":"Selection"},{"attributes":{"align":"center","text":"Energy Production of One Year","text_color":{"value":"olive"},"text_font":"times","text_font_size":{"value":"15pt"},"text_font_style":"italic"},"id":"1039","type":"Title"},{"attributes":{"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Line"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1056","type":"BoxAnnotation"},{"attributes":{"children":[{"id":"1002","subtype":"Figure","type":"Plot"},{"id":"1045","type":"Select"}]},"id":"1047","type":"Column"},{"attributes":{},"id":"1021","type":"PanTool"},{"attributes":{"below":[{"id":"1011","type":"LinearAxis"}],"center":[{"id":"1015","type":"Grid"},{"id":"1020","type":"Grid"}],"left":[{"id":"1016","type":"LinearAxis"}],"plot_height":250,"renderers":[{"id":"1037","type":"GlyphRenderer"}],"title":{"id":"1039","type":"Title"},"toolbar":{"id":"1027","type":"Toolbar"},"x_range":{"id":"1003","type":"DataRange1d"},"x_scale":{"id":"1007","type":"LinearScale"},"y_range":{"id":"1005","type":"DataRange1d"},"y_scale":{"id":"1009","type":"LinearScale"}},"id":"1002","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1022","type":"WheelZoomTool"},{"attributes":{"callback":null,"data":{"tilt_10":{"__ndarray__":"AAAAYEZfT0AAAAAAG1RjQAAAACDLcHVAAAAA4P0nfUAAAADAc6R9QAAAAGCjC39AAAAAYF6tekAAAABAknZ1QAAAAABXoHBAAAAAwBgtYEAAAABALF9SQAAAAIAopkJA","dtype":"float64","shape":[12]},"tilt_15":{"__ndarray__":"AAAA4CpaU0AAAAAAZZVmQAAAAEDyKXdAAAAAoMtzfkAAAADgexF+QAAAAOBkOn9AAAAAoJjpekAAAACAXMh1QAAAAABSbHFAAAAAwFt7YUAAAACAUx5WQAAAAOCmgUdA","dtype":"float64","shape":[12]},"tilt_20":{"__ndarray__":"AAAAwNrgVkAAAADgkaRpQAAAAMCetnhAAAAA4BWMf0AAAADArld+QAAAAAAAR39AAAAAQOYGe0AAAAAAEP91QAAAAMBTHHJAAAAA4LasYkAAAABgQrRZQAAAAGA+PExA","dtype":"float64","shape":[12]},"tilt_25":{"__ndarray__":"AAAAwB8xWkAAAADA23hsQAAAAMBeFXpAAAAAwAM3gEAAAACgqHd+QAAAACBIMH9AAAAAwN4De0AAAADgxxp2QAAAACDXr3JAAAAAIJe+Y0AAAACgAw9dQAAAAOD0WlBA","dtype":"float64","shape":[12]},"tilt_30":{"__ndarray__":"AAAAYHdBXUAAAABgVw1vQAAAAABSRXtAAAAAoMyIgEAAAADA329+QAAAAMBT9X5AAAAAANzfekAAAACgChx2QAAAAADVJnNAAAAAgHavZEAAAADgmRJgQAAAAICnb1JA","dtype":"float64","shape":[12]},"tilt_35":{"__ndarray__":"AAAAoH8GYEAAAACglK9wQAAAAAAxRXxAAAAAYAi7gEAAAABALkJ+QAAAAGAgln5AAAAAgC6cekAAAABABAN2QAAAAGCxgHNAAAAA4Fx+ZUAAAAAAHHlhQAAAAOBKWFRA","dtype":"float64","shape":[12]},"tilt_40":{"__ndarray__":"AAAAYHNIYUAAAABgO7ZxQAAAAECUEH1AAAAAgHrTgEAAAAAAI+59QAAAAGBAFX5AAAAAADE6ekAAAAAA7c91QAAAAMDuvXNAAAAA4K0qZkAAAADA0rliQAAAAODDElZA","dtype":"float64","shape":[12]},"tilt_45":{"__ndarray__":"AAAAYMBlYkAAAAAA95lyQAAAAOCDn31AAAAA4N3UgEAAAAAg13N9QAAAAGCUcn1AAAAAwNy6eUAAAADAl4N1QAAAAEAp3nNAAAAAwPyzZkAAAADgBNRjQAAAAMDDnVdA","dtype":"float64","shape":[12]},"tilt_5":{"__ndarray__":"AAAAgGYKSEAAAABA0eFfQAAAAOBdjXNAAAAAYCupe0AAAADAhRF9QAAAAODpuX5AAAAAoFRRekAAAACA3Al1QAAAAADNcW9AAAAAIGWMXUAAAACAFTRNQAAAAEAkzTtA","dtype":"float64","shape":[12]},"tilt_50":{"__ndarray__":"AAAAgM9dY0AAAABA0lhzQAAAAMBu/H1AAAAAQADAgEAAAABgj9V8QAAAAKCHrXxAAAAAIL0deUAAAAAALh51QAAAAKCA4XNAAAAA4AsaZ0AAAACgOsdkQAAAAEBK+FhA","dtype":"float64","shape":[12]},"tilt_55":{"__ndarray__":"AAAAwCQwZEAAAABgpu5zQAAAAGBCK35AAAAA4FeVgEAAAADAyhR8QAAAAGCDx3tAAAAAANlieEAAAADgBqB0QAAAACApyHNAAAAAYL5cZ0AAAABgG5NlQAAAAMB2IVpA","dtype":"float64","shape":[12]},"tilt_60":{"__ndarray__":"AAAAoF3cZEAAAADAw110QAAAAECFL35AAAAAAINVgEAAAABAszB7QAAAAGCLwXpAAAAAgNyKd0AAAADgBAp0QAAAAOBvknNAAAAAYBh8Z0AAAABgYDdmQAAAAECUGFtA","dtype":"float64","shape":[12]},"tilt_65":{"__ndarray__":"AAAAAB5iZUAAAADgcat0QAAAAIAtDH5AAAAAoEgAgEAAAADgLCp6QAAAAGDRnHlAAAAA4HaXdkAAAAAgLl1zQAAAAECxQHNAAAAAgEF4Z0AAAABA0rNmQAAAAKAa3VtA","dtype":"float64","shape":[12]},"tilt_70":{"__ndarray__":"AAAAACfBZUAAAABA2tZ0QAAAAOAmwn1AAAAAgMMpf0AAAAAg1gJ5QAAAACAUXXhAAAAAoMmKdUAAAACgrJpyQAAAAGBg03JAAAAAQH1RZ0AAAACATAhnQAAAAECPblxA","dtype":"float64","shape":[12]},"tilt_75":{"__ndarray__":"AAAAIEf5ZUAAAAAAguF0QAAAAMCMUH1AAAAAYFUifkAAAADAPb13QAAAAEDVBHdAAAAAYI5ndEAAAACAysNxQAAAAGALS3JAAAAAYEIIZ0AAAAAAwDRnQAAAAKCGzFxA","dtype":"float64","shape":[12]},"tilt_80":{"__ndarray__":"AAAAIHYKZkAAAAAgdMt0QAAAAOBstnxAAAAAwKbjfEAAAABAvVl2QAAAAMDMk3VAAAAAQCMxc0AAAAAAhdpwQAAAAOBkqHFAAAAAgB2dZkAAAADANDlnQAAAAODP9lxA","dtype":"float64","shape":[12]},"tilt_85":{"__ndarray__":"AAAAALT0ZUAAAABAxJN0QAAAAOAP73tAAAAAwJpve0AAAADAPtp0QAAAAGAQDHRAAAAAIIjncUAAAABAoL9vQAAAACAh7HBAAAAAIKEQZkAAAACgyhVnQAAAACB07VxA","dtype":"float64","shape":[12]},"tilt_90":{"__ndarray__":"AAAAwDC4ZUAAAAAgoDp0QAAAAOAJ9HpAAAAA4HXLeUAAAAAA/EJzQAAAAOBQcXJAAAAAoDyMcEAAAABAT6ttQAAAAGA6F3BAAAAAQKJjZUAAAAAAzcpmQAAAAACasFxA","dtype":"float64","shape":[12]},"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"AAAAgGYKSEAAAABA0eFfQAAAAOBdjXNAAAAAYCupe0AAAADAhRF9QAAAAODpuX5AAAAAoFRRekAAAACA3Al1QAAAAADNcW9AAAAAIGWMXUAAAACAFTRNQAAAAEAkzTtA","dtype":"float64","shape":[12]}},"selected":{"id":"1055","type":"Selection"},"selection_policy":{"id":"1054","type":"UnionRenderers"}},"id":"1001","type":"ColumnDataSource"}],"root_ids":["1047"]},"title":"Bokeh Application","version":"1.1.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1129').textContent;
+                  var render_items = [{"docid":"657c7044-5a82-483d-8aa3-d5d2a152c73f","roots":{"1047":"f6a40c22-7309-4f07-8616-c383c271ada9"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
