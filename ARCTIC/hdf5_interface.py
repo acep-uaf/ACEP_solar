@@ -124,7 +124,7 @@ def update_existing_panel_entry(hdf5_filename, data_filename, panel_name, interp
         elif "Day" not in solar_dataframe.columns:
             print("Are you sure you want to delete the day column, when the "
                   "new data does not contain any daily information? ")
-            delete = raw_input("Type 'y' for yes, and 'n' for no.")
+            delete = input("Type 'y' for yes, and 'n' for no.")
             if delete == 'y':
                 del panel_name_hdf5['Day']
             elif delete == 'n':
@@ -188,7 +188,7 @@ def delete_panel(hdf5_filename, location_name, panel_name):
     #Prompt the user one last time to make sure they want to delete this file.
     print("Are you sure you want to delete the day column, when the "
           "new data does not contain any daily information? ")
-    delete = raw_input("Type 'y' for yes, and 'n' for no.")
+    delete = input("Type 'y' for yes, and 'n' for no.")
     if delete == 'y':
         del panel_name_hdf5
     elif delete == 'n':
