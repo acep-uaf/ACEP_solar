@@ -191,6 +191,7 @@ def delete_panel(hdf5_filename, location_name, panel_name):
     delete = input("Type 'y' for yes, and 'n' for no.")
     if delete == 'y':
         del panel_name_hdf5
+        print("It's deleted")
     elif delete == 'n':
         hdf5_file.close()
         raise ValueError("User declined to progress. Check data being input.")
