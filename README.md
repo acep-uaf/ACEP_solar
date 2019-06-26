@@ -2,7 +2,7 @@
 
 ***
 
-Data Driven Solar Performance Analysis for Alaska
+Interactive Data Visualization Tool for Solar Installations in Alaska
 
 **Development Team Members** - Ge Gu, Jon Onorato, Zhi Peng
 
