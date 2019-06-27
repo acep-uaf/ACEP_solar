@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import h5py
-import hdf5_interface
+from ARCTIC import hdf5_interface
 import requests
 def hdf5_to_dataframe(hdf5_filename, location_name, panel_name):
     """This function extracts data from an HDF5 file and loads it into a pandas dataframe"""
