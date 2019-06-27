@@ -1,13 +1,19 @@
 """This package contains all the tools for plotting the various graphics in Bokeh and saving them as HTML files."""
 
 import h5py
-import numpy as np
-import matplotlib.pyplot as plt
+import bokeh
+import json
 import pandas as pd
-from bokeh.plotting import figure, show, output_file, output_notebook
-from bokeh.models import ColumnDataSource, Range1d, LabelSet, Label, Legend
+import numpy as np
 import requests
+from bokeh.plotting import figure, output_file, show, output_notebook
+from bokeh.models import NumeralTickFormatter
 from bokeh.palettes import Spectral4
+from bokeh.io import show
+from bokeh.layouts import column
+from bokeh.models import ColumnDataSource, CustomJS, Select
+from bokeh.models import ColumnDataSource, Range1d, LabelSet, Label, Legend
+from bokeh.plotting import figure
 from ARCTIC import hdf5_interface
 from ARCTIC import nrel_api_interface
 
