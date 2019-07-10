@@ -52,7 +52,12 @@ def call_pvwatts(latitude, longitude, tilt, dataset, azimuth = 180):
     pvwatts_response = requests.get("https://developer.nrel.gov/api/pvwatts/v6", params = parameters)
     
     #Check the response from pvwatts to ensure that data was actually received
-    assert pvwatts_response.status_code == 200, "Error: " + str(pvwatts_reponse.status_code)
+    assert pvwatts_response.status_code == 200 or pvwatts_response.status_code == 422, "Error: " + str(pvwatts_response.status_code)
+    
+    #Note the 422 response implies something was wrong about inputs.
+    if pvwatts_response.status_code == 422:
+        print("Warning! PVWatts had an error 422. This means either the solar dataset does not exist for ")
+        print("your intended location, or that something was wrong with your inputs (out of bounds possibly).")
     
     #Now we convert the response into a json format - 
     pvwatts_response_json = pvwatts_response.json()
@@ -60,10 +65,8 @@ def call_pvwatts(latitude, longitude, tilt, dataset, azimuth = 180):
     #Need a quick check to make sure that there was not a problem in the way PVWatts was called
     #If PVWatts detects an error, it throw it here. 
     if pvwatts_response_json['errors'] != []:
-        print("An error occured when calling PVWatts. The error was: ")
+        print("Warning! An error occured when calling PVWatts. The error was: ")
         print(pvwatts_response_json['errors'])
-        print("Please correct the error and call this function again.")
-        raise ResponseError("Please correct the error and call the `call_pvwatts` function again")
     
     #Load the response to a dataframe
     dataframe = pd.DataFrame(pvwatts_response_json['outputs'])
